@@ -1,0 +1,79 @@
+body{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+}
+
+p{
+    font-size: 30px;
+}
+
+.container{
+    position: relative;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    background-color: gray;
+    padding: 5px;
+    width: 74.5%;
+    height: 65%;
+}
+
+.cabin{
+    width:100%;
+    height:100%;
+}
+
+/* Right block */
+.rightBlock{
+    padding: 0.5%;
+    margin: 0.5%;
+    display: flex;
+    position: relative;
+    width: 25%;
+    height: 95%;
+    flex-direction: column;
+    background-color: darkgrey;
+}
+
+.inventoryBlock{
+    display: flex;
+    padding: 1%;
+    width: 100%;
+    height: 40%;
+    background-color: grey;
+    margin-bottom: 1%;
+}
+
+   
+.cluesBlock{
+    display: flex;
+    background-color: grey;
+    width: 100%; 
+    height: 60%;
+    padding: 1%;
+    
+}
+
+/* Bottom block */
+
+.bottomBlock{
+    padding: 0.5%;
+    margin: 0.5%;
+    display: flex;
+    position: absolute;
+    bottom: 1%;
+    background-color: grey;
+    height: 28%;
+    width: 72%;
+}
+
+.terminal{
+    width: 100%;
+    background-color: black;
+    color:greenyellow;
+    font-family: "Pixelify Sans", serif;
+    font-size: 20px;
+    
+}
