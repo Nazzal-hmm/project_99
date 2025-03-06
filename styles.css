@@ -1,0 +1,124 @@
+html{
+    background-color: rgb(52, 52, 52);
+    
+}
+@keyframes glow {
+    0% { text-shadow: 0 0 5px red; }
+    50% { text-shadow: 0 0 15px red, 0 0 25px red; }
+    100% { text-shadow: 0 0 5px red; }
+}
+.ATTENTION{
+    font-size: 70px;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+}
+.main-box{
+    background-color: black;
+    width: 60%;
+    height: 60%;
+    position: relative;
+    background-color: black;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px red;
+    text-align: center;
+    width: 73%;
+}
+
+.text-alert {
+    padding-top: 60px;
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0 0 10px red;
+    animation: glow 1s infinite alternate;
+}
+/* body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #222;
+} */
+
+
+.button-container {
+    margin-top: 30px; /* Space between black box and button */
+    text-align: center;
+}
+
+.continue-button {
+    background-color: red;
+    color: white;
+    font-size: 24px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px red;
+    cursor: pointer;
+    text-align: center;
+}
+.continue-button:hover {
+    background-color: darkred;
+    box-shadow: 0 0 25px red;
+}
+
+.girl{
+    color: white;
+    background-color: aliceblue;
+}
+
+.right-box {
+    background-color: grey;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.right-box{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 10px;
+    width: 22.7%;
+    background-color: lightgrey;
+}
+
+.inventory, .clues {
+    flex: 1; /* Each takes up half */
+    display: flex;
+    background-color: #b0b0b0;
+    margin: 5px; 
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.bottomBlock{
+    position: fixed;
+    bottom: 115px;
+}
+
+.terminal{
+    background-color: black;
+   width: 1609px;
+   position: relative;
+   top:110px;
+   height: 260px;
+   color: rgb(112, 255, 112);
+   font-size: 20px;
+}
+
+
+
+
+
+
+
