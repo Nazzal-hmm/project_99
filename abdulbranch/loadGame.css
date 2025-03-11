@@ -1,5 +1,5 @@
 body{
-    background-image:url(images/newbg2.png);
+    background-image:url(images/newbg2.2.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -42,6 +42,15 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.enterDetails{
+    font-family: "Pixelify Sans", serif;
+    color: #f9c857;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
 
 /* Create Button */
 .createButton{
