@@ -127,6 +127,8 @@ iframe {
     pointer-events: none;
 }
 
+
+
 .flier > * {
     animation: fly 60s linear infinite;
     pointer-events: none !important;
@@ -136,17 +138,23 @@ iframe {
     transform: translateX(-120%) translateY(-120%) rotateZ(0);
     animation-delay: 1s;
     z-index: 999999;
+    font-size: 40px;
+    background-color: darkgray;
+    font-family: "Pixelify Sans", serif;
+    border-radius: 12px;
+    border: 5px solid;
 }
+
 
 @keyframes fly {
     98%, 0% {
         display: block;
         transform: translateX(-200%) translateY(100vh) rotateZ(0deg);
     }
-    15% {
+    16% {
         transform: translateX(100vw) translateY(-100%) rotateZ(180deg);
     }
-    15.001%, 18% {
+    17%, 18% {
         transform: translateX(100vw) translateY(-30%) rotateZ(0deg);
     }
     40% {

@@ -35,7 +35,24 @@
         </div>
        
     </div>
-    <button class="settingsButton">Settings</button>
+
+    <button class="settingsButton" onclick="openSettings()">Settings</button>
+
+    <div id="settingsContainer">
+        <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
+    </div>
+  
+     <!-- ai generated for demonstraion -->
+    <script>
+        function openSettings() {
+        const container = document.getElementById("settingsContainer");
+        container.style.display = "block"
+        }
+        function closeIframe(){
+        document.getElementById("settingsContainer").style.display = "none";
+        }
+    </script>
+
   
 
     <div class="bottomBlock">
