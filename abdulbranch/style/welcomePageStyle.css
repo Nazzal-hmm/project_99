@@ -1,14 +1,24 @@
 body {
-    background-image: url(images/newbg2.2.png);
+    background-image: url(/project_99/abdulbranch/images/newbg2.2.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-
+    display: flex;
 }
 
 h1 {
     margin: 0;
+}
+
+h2{
+    margin: 0;
+    font-family: "Pixelify Sans", serif;
+    font-size:45px;
+    color: #f9c857;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 /* Title */
@@ -18,22 +28,25 @@ h1 {
     position: relative;
     color: #f9c857;
     font-family: "Pixelify Sans", serif;
-    font-size: 90px;
+    font-size: 5vw;
     text-shadow: 5px 8px black;
     padding-top: 0;
 }
 
 /*Container*/
 .container {
-    position: absolute;
-    left: 68%;
-    top: 35%;
+    /* background-color: red; */
+    position: fixed;
+    top: 55%;
+    left: 80%;
+    transform: translate(-90%, -55%);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 23%;
+    width: 400px;
     height: 400px;
 }
+
 
 #settingsContainer {
     background-color: wheat;
@@ -58,7 +71,7 @@ iframe {
  
 
 /* Menu Buttons  */
-.mainMenuButtons {
+.buttons {
     width: 100%;
     position: relative;
     padding: 20px 5%;
@@ -73,7 +86,7 @@ iframe {
     white-space: nowrap;
 }
 
-.mainMenuButtons::before {
+.buttons::before {
     content: '';
     position: absolute;
     border-radius: 12px;
@@ -87,7 +100,7 @@ iframe {
     transition: top, bottom, left, right 100ms ease-in-out;
 }
 
-.mainMenuButtons:hover::before{
+.buttons:hover::before{
     top: calc(var(--border-size) * -5);
     bottom: calc(var(--border-size) * -5);
     left: calc(var(--border-size) * -5);
@@ -120,6 +133,15 @@ iframe {
     border-collapse: collapse;
 }
 
+/* Inputs*/
+.container input{
+    font-family: "Pixelify Sans", serif;
+    font-size: 20px;
+    border-color:grey;
+    padding: 12px;
+    border-radius: 12px;
+    border-width: 5px;
+}
 
 
 /* Flying Image  */
