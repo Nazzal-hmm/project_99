@@ -5,10 +5,13 @@ body{
     height: 100vh;
     background-color: black;
 }
+/* html{
+    font-size: 100px;
+} */
 
-p{
-    font-size: 30px;
-}
+/* p{
+    font-size: 0.3em;
+} */
 
 .container{
     position: relative;
@@ -22,23 +25,73 @@ p{
     width: 74.5%;
     height: 75%;
     align-items: center;
+    z-index: 0;
+    overflow: hidden;
 }
 
+.door1{
+    background-image: url(../images/door.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    z-index: 3;
+    width: 50%;
+    height: 99%;
+    position: absolute;
+    left: 0;
+    animation: door1 1.5s forwards;
+}
+
+.door2{
+    background-image: url(../images/door.png);
+    transform: scaleX(-1);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 3;
+    width: 50%;
+    height: 99%;
+    position: absolute;
+    right: 0;
+    animation: door2 1.5s forwards;
+}
+
+@keyframes door1{
+    /* 0% { left: -50%; top: 0; opacity: 1; }  
+    25% { left: 0%; top: 0; opacity: 1; }    */
+    /* 0% { left: -50%; top: 0; opacity: 1; }  */
+    0% { left: 0%; top: 0; opacity: 1; }
+    100% { left: -50%; top: 0; opacity: 1; } 
+}
+
+
+@keyframes door2{
+    /* 0% { right: -50%; top: 0; opacity: 1; }  
+    25% { right: 0%; top: 0; opacity: 1; }    */
+    /* 0% { right: -50%; top: 0; opacity: 1; }   */
+    0% { right: 0%; top: 0; opacity: 1; }
+    100% { right: -50%; top: 0; opacity: 1; } 
+}
+
+
 .displayBlock{
+    white-space: normal;
+    overflow-y: scroll;
     position: absolute;
     width: 95%;
     height: 20%;
     background-color:rgba(0,0,0,0.6) ;
     color:greenyellow;
     font-family: "Pixelify Sans", serif;
+    font-size: 2vw;
     top: 78%;
     border-style:solid ;
     border-color: grey;
+    z-index:2;
 }
 
 .gameImage{
     width:100%;
     height:100%;
+    z-index: 1;
 }
 
 /* Right block */
@@ -143,7 +196,6 @@ p{
 
 #settingsContainer {
     background-color: greenyellow;
-
     display: none;
     position: fixed; 
     top: 50%; 

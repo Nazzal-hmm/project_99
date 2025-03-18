@@ -1,5 +1,5 @@
 body {
-    background-image: url(/project_99/abdulbranch/images/newbg2.2.png);
+    background-image: url(../images/newbg2.2.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,6 +20,7 @@ h2{
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
+
 
 /* Title */
 .title {

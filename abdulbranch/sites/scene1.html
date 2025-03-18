@@ -8,25 +8,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/scene1style.css">
+    <script src="../script/script.js"> </script>
 </head>
 <body>
+<audio src="../audio/doorSound.mp3" id="doorSound" preload="auto"></audio>
 
-    <div class="container">
-        <img class="gameImage" src="../images/interior3.jpg" alt="image">
+<div class="container">
+    <img class="gameImage" src="../images/interior3.jpg" alt="image">
 
-        <div class="displayBlock">
-            <p>This is the new box</p>
-        </div>
-
+    <div class="displayBlock">
+        <p>This is the new box</p>
     </div>
+
+    <div class="door1" id="leftDoor">
+        <!-- Door content -->
+    </div>
+
+    <div class="door2" id="rightDoor">
+        <!-- Door content -->
+    </div>
+    
+</div>
 
     <div class="rightBlock">
 
         <div class="inventoryBlock">
-             <h2>Inventory</h2>
-             <a href="task4final.html">
-                <button class="next">next</button>
-             </a>
+            <h2>Inventory</h2>
+            
+            <a href="task4final.html">
+                <button id="next">next</button>
+            </a>
             
         </div>
     
@@ -41,18 +52,6 @@
     <div id="settingsContainer">
         <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
     </div>
-  
-     <!-- ai generated for demonstraion -->
-    <script>
-        function openSettings() {
-        const container = document.getElementById("settingsContainer");
-        container.style.display = "block"
-        }
-        function closeIframe(){
-        document.getElementById("settingsContainer").style.display = "none";
-        }
-    </script>
-
   
 
     <div class="bottomBlock">
