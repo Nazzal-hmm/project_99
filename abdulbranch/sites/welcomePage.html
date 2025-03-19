@@ -9,9 +9,22 @@
     <title>Dark Horizon</title>
 </head>
 <body>
-   <audio id="backgroundMusic"  autoplay loop>
-      <source src="audio/backgroundMusic.mp3">
+   <audio id="backgroundMusic" >
+      <source src="/audio/backgroundMusic.mp3">
    </audio>
+
+   <script>
+      document.body.addEventListener("mouseenter", function () {
+          let music = document.getElementById("backgroundMusic");
+  
+          // Try to play the music
+          music.play().then(() => {
+              console.log("Music started successfully!");
+          }).catch(error => {
+              console.log("Autoplay blocked:", error);
+          });
+      }, { once: true }); // Ensures it only triggers once
+  </script>
 
    <div class="title">
       <h1>FRACTURED HORIZON</h1>
@@ -92,7 +105,6 @@
          }
       });
    </script>
-
 
 </body>
 </html>

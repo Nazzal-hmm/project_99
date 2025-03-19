@@ -20,7 +20,7 @@ body{
     font-family: "Pixelify Sans", serif;
     margin-top: 0.5%;
     margin-left: 0.5%;
-    background-color: grey;
+    background-color: rgb(0, 0, 0);
     padding: 5px;
     width: 74.5%;
     height: 75%;
@@ -30,7 +30,7 @@ body{
 }
 
 .door1{
-    background-image: url(../images/door.png);
+    background-image: url("images/door.png");
     background-size:cover;
     background-repeat: no-repeat;
     z-index: 3;
@@ -42,7 +42,7 @@ body{
 }
 
 .door2{
-    background-image: url(../images/door.png);
+    background-image: url("images/door.png");
     transform: scaleX(-1);
     background-size: cover;
     background-repeat: no-repeat;
@@ -55,38 +55,18 @@ body{
 }
 
 @keyframes door1{
-    /* 0% { left: -50%; top: 0; opacity: 1; }  
-    25% { left: 0%; top: 0; opacity: 1; }    */
-    /* 0% { left: -50%; top: 0; opacity: 1; }  */
     0% { left: 0%; top: 0; opacity: 1; }
     100% { left: -50%; top: 0; opacity: 1; } 
 }
 
 
 @keyframes door2{
-    /* 0% { right: -50%; top: 0; opacity: 1; }  
-    25% { right: 0%; top: 0; opacity: 1; }    */
-    /* 0% { right: -50%; top: 0; opacity: 1; }   */
     0% { right: 0%; top: 0; opacity: 1; }
     100% { right: -50%; top: 0; opacity: 1; } 
 }
 
 
-.displayBlock{
-    white-space: normal;
-    overflow-y: scroll;
-    position: absolute;
-    width: 95%;
-    height: 20%;
-    background-color:rgba(0,0,0,0.6) ;
-    color:greenyellow;
-    font-family: "Pixelify Sans", serif;
-    font-size: 2vw;
-    top: 78%;
-    border-style:solid ;
-    border-color: grey;
-    z-index:2;
-}
+
 
 .gameImage{
     width:100%;
@@ -190,7 +170,7 @@ body{
     background-color: black;
     color:greenyellow;
     font-family: "Pixelify Sans", serif;
-    font-size: 30px;
+    font-size: 20px;
     border: 5px;
 }
 
@@ -213,4 +193,28 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px red; }
+    50% { text-shadow: 0 0 15px red, 0 0 25px red; }
+    100% { text-shadow: 0 0 5px red; }
+}
+
+.ATTENTION{
+    font-size: 70px;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    font-weight: bold;
+    animation: glow 1s infinite alternate;
+    text-align: center;
+}
+
+.text-alert {
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0 0 10px red;
+    animation: glow 1s infinite alternate;
+    font-weight: bold;
 }

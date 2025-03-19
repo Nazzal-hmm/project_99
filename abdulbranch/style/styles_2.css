@@ -20,11 +20,11 @@ body{
     font-family: "Pixelify Sans", serif;
     margin-top: 0.5%;
     margin-left: 0.5%;
-    background-color: grey;
+    background-color: rgb(5, 5, 5);
     padding: 5px;
     width: 74.5%;
     height: 75%;
-    align-items: center;
+    align-items: flex-end;
     z-index: 0;
     overflow: hidden;
 }
@@ -190,7 +190,7 @@ body{
     background-color: black;
     color:greenyellow;
     font-family: "Pixelify Sans", serif;
-    font-size: 30px;
+    font-size: 20px;
     border: 5px;
 }
 
@@ -213,4 +213,56 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 20px;
+}
+
+.main-guy, .girl, .women, .voice {
+    font-size: 2.5em;
+}
+
+.main-guy {
+    color: cyan;
+    text-align: right;
+    width: 50%;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+.girl {
+    color: pink;
+    text-align: right;
+    width: 100%;
+}
+
+.women {
+    color: green;
+    text-align: right;
+    width: 100%;
+}
+
+.voice {
+    color: lightgrey;
+    text-align: center;
+    width: 100%;
+}
+
+.floating {
+    display: inline-block;
+    animation: floatUp 2s infinite alternate;
+}
+
+@keyframes moveRight {
+    from { transform: translateX(0); }
+    to { transform: translateX(10px); }
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
 }
