@@ -224,32 +224,52 @@ iframe {
 
 .main-guy, .girl, .women, .voice {
     font-size: 2.5em;
+    
 }
-
+@keyframes glow {
+    0% { text-shadow: 0 0 5px cyan; }
+    50% { text-shadow: 0 0 15px cyan, 0 0 25px cyan; }
+    100% { text-shadow: 0 0 5px cyan; }
+}
 .main-guy {
     color: cyan;
     text-align: right;
     width: 50%;
     white-space: normal;
     line-height: 1.2;
+    animation: glow 3s infinite alternate;
 }
 
 .girl {
-    color: pink;
+    color: rgb(247, 136, 18);
     text-align: right;
     width: 100%;
+    animation: glow1 3s infinite alternate;
+}
+@keyframes glow1 {
+    0% { text-shadow: 0 0 5px orange; }
+    50% { text-shadow: 0 0 15px orange, 0 0 25px orange; }
+    100% { text-shadow: 0 0 5px orange; }
 }
 
 .women {
-    color: green;
+    color: lightgreen;
     text-align: right;
     width: 100%;
+    animation: glow2 3s infinite alternate;
+}
+@keyframes glow2 {
+    0% { text-shadow: 0 0 5px lightgreen; }
+    50% { text-shadow: 0 0 15px lightgreen, 0 0 25px lightgreen; }
+    100% { text-shadow: 0 0 5px lightgreen; }
 }
 
 .voice {
     color: lightgrey;
     text-align: center;
+    text-shadow: 2px 3px red;
     width: 100%;
+    animation: glow3 1s infinite alternate;
 }
 
 .floating {
