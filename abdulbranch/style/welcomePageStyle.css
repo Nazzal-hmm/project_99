@@ -7,6 +7,7 @@ body {
     display: flex;
 }
 
+
 h1 {
     margin: 0;
 }
@@ -158,8 +159,7 @@ iframe {
     position: fixed;
     top: 0;
     left: 0;
-    transform: translateX(-120%) translateY(-120%) rotateZ(0);
-    animation-delay: 1s;
+    transform: translateX(-120%) translateY(-120%) rotateZ(0); /* Reduced off-screen offset */
     z-index: 999999;
     font-size: 40px;
     background-color: darkgray;
@@ -168,11 +168,10 @@ iframe {
     border: 5px solid;
 }
 
-
 @keyframes fly {
-    98%, 0% {
+    98%, 1% { 
         display: block;
-        transform: translateX(-200%) translateY(100vh) rotateZ(0deg);
+        transform: translateX(-100%) translateY(100vh) rotateZ(0deg);
     }
     16% {
         transform: translateX(100vw) translateY(-100%) rotateZ(180deg);

@@ -7,104 +7,70 @@
     <link rel="stylesheet" href="../style/welcomePageStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <title>Dark Horizon</title>
+
 </head>
 <body>
-   <audio id="backgroundMusic" >
-      <source src="/audio/backgroundMusic.mp3">
-   </audio>
 
-   <script>
-      document.body.addEventListener("mouseenter", function () {
-          let music = document.getElementById("backgroundMusic");
-  
-          // Try to play the music
-          music.play().then(() => {
-              console.log("Music started successfully!");
-          }).catch(error => {
-              console.log("Autoplay blocked:", error);
-          });
-      }, { once: true }); // Ensures it only triggers once
-  </script>
+    <div class="title">
+        <h1>FRACTURED HORIZON</h1>
+    </div>
 
-   <div class="title">
-      <h1>FRACTURED HORIZON</h1>
-   </div>
+    <!-- Menu Buttons -->
+    <div class="container">
+        <div class="btnWrapper">
+            <a href="newGame.html">
+                <button class="buttons">New Game</button>
+            </a>
+        </div>
 
-   <!-- Menu Buttons -->
-   <div class="container">
-      <div class="btnWrapper">
-         <a href="newGame.html">
-            <button class="buttons">New Game</button>
-         </a>
-      </div>
+        <div class="btnWrapper">
+            <a href="loadGame.html">
+                <button class="buttons">Load Game</button>
+            </a>
+        </div>
 
-      <div class="btnWrapper">
-         <a href="loadGame.html">
-            <button class="buttons">Load Game</button>
-         </a>
-      </div>
+        <div class="btnWrapper">
+            <button class="buttons" onclick="openSettings()">Settings</button>
+        </div>    
 
-      <div class="btnWrapper">
-         <button class="buttons" onclick="openSettings()">Settings</button>
-      </div>    
-      
-      <div class="leaderboard">
-         <table>
-            <tr>
-               <th>Leaderboard</th>
-            </tr>
-            <tr>
-               <th>Astronoumer</th>
-               <th>Score</th>
-            </tr>
-            <tr>
-               <td>Alfreds Futterkiste</td>
-               <td>1240</td>
-            </tr>
-            <tr>
-               <td>Centro comercial Moctezuma</td>
-               <td>840</td>
-            </tr>
-         </table>
-      </div>
-   </div>
+        <div class="leaderboard">
+            <table>
+                <tr>
+                    <th>Leaderboard</th>
+                </tr>
+                <tr>
+                    <th>Astronoumer</th>
+                    <th>Score</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>1240</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>840</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-   <div class="flier">
-       <button>Press F11</button>
-   </div>
+    <div class="flier">
+        <button>Press F11</button>
+    </div>
 
-   <div id="settingsContainer">
-      <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
-   </div>
+    <div id="settingsContainer">
+        <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
+    </div>
 
-   <!-- ai generated for demonstraion -->
-   <script>
-      function openSettings() {
+    <script>
+        function openSettings() {
             const container = document.getElementById("settingsContainer");
             container.style.display = "block";
-         }
-         function closeIframe(){
-         document.getElementById("settingsContainer").style.display = "none";
-         }
+        }
 
-   </script>
-
-   <script>
-      const music = document.getElementById('backgroundMusic');
-
-      function updateVolume() {
-         const savedVolume = localStorage.getItem('musicVolume');
-         if (savedVolume) {
-            music.volume = savedVolume; 
-         }
-      }
-      updateVolume();
-      window.addEventListener('storage', (event) => {
-         if (event.key === 'musicVolume') {
-            updateVolume();
-         }
-      });
-   </script>
-
+        function closeIframe() {
+            document.getElementById("settingsContainer").style.display = "none";
+        }
+    </script>
 </body>
 </html>
