@@ -5,13 +5,7 @@ body{
     height: 100vh;
     background-color: black;
 }
-/* html{
-    font-size: 100px;
-} */
 
-/* p{
-    font-size: 0.3em;
-} */
 
 .container{
     position: relative;
@@ -25,8 +19,20 @@ body{
     width: 74.5%;
     height: 75%;
     align-items: center;
-    z-index: 0;
     overflow: hidden;
+}
+
+#selectionBox{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color:rgba(245, 245, 245, 0.6) ;
+    color: black;
+    height: 35%;
+    width: 25%;
+    z-index: 2;
+    left: 77%;
+    font-size: 150%;
 }
 
 .door1{

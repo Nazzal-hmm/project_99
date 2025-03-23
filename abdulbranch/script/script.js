@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //Load Progress
 
 // Open Settings Button
-function openSettings() {
+function openAccessibility() {
 const container = document.getElementById("settingsContainer");
 container.style.display = "block"
 }
@@ -30,36 +30,56 @@ document.getElementById("settingsContainer").style.display = "none";
 
 //Scenes
 document.addEventListener("DOMContentLoaded", () => {
-    let userInput = document.getElementById("userIn");
-    let displayBlock =document.getElementById("displayBlock")
-    
+    const userInput = document.getElementById("userIn");
+    const displayBlock = document.getElementById("displayBlock");
+
+    // Track the user's correct inputs for Task4final scene
+    const task4Inputs = new Set(["engine thrusters", "life support", "navigation systems"]);
+    const userInputs = new Set();
+
     userInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            const inputValue = userInput.value.trim();
 
-        //Scene1
-        if (window.location.pathname === "/sites/scene1.html" && e.key === "Enter") {
-            let inputValue = userInput.value.trim();
+            // Check for empty input
+            if (!inputValue) {
+                displayBlock.innerHTML = "Please enter a command!";
+                userInput.value = "";
+                return;
+            }
 
-            if (inputValue === "go ship") {
-                location.href = "/sites/task4final.html";
-            } else {
-               displayBlock.innerHTML= inputValue+" is an Invalid input!<br>Type 'go ship' to change location!";
-               userInput.value="";
+            // Scene1
+            if (window.location.pathname === "/sites/scene1.html") {
+                if (inputValue === "go ship") {
+                    location.href = "/sites/task4final.html";
+                } else {
+                    displayBlock.innerHTML = `${inputValue} is an Invalid input!<br>Type 'go ship' to change location!`;
+                    userInput.value = "";
+                }
+            }
+
+            // Task4final Scene
+            if (window.location.pathname === "/sites/task4final.html") {
+                
+                if (task4Inputs.has(inputValue)) {
+                    
+                    userInputs.add(inputValue);
+
+                    
+                    if (userInputs.size === task4Inputs.size) {
+                        displayBlock.innerHTML = "YOU HAVE SELECTED THE APPROPRIATE LOCATIONS! <br> THE SHIP IS SAVED!";
+                        
+                        userInputs.clear();
+                    } else {
+                        displayBlock.innerHTML = `You've entered: ${Array.from(userInputs).join(", ")}<br>Keep going!`;
+                    }
+                } else {
+                    displayBlock.innerHTML = `${inputValue} is an invalid input!<br>Type one of the provided opotions`;
+                }
+                
+                userInput.value = "";
             }
         }
-
-        //Task4final
-        if (window.location.pathname === "/sites/task4final.html" && e.key === "Enter") {
-            let inputValue = userInput.value.trim();
-     
-            if(inputValue === "go back"){
-                location.href = "/sites/scene1.html";
-             } else{
-                 displayBlock.innerHTML= inputValue+" is an Invalid input!<br>Type 'go back' to change location!";
-                 userInput.value="";
-             }
-       }
-        
     });
 });
-
 
