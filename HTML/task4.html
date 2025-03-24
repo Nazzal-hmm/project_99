@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/task4.css">
+    <script src="../JavaScript/task4.js"> </script>
+</head>
+<body>
+
+    <div class="container">
+        <img class="gameImage" src="../images/task4image.jpg" alt="image">
+        <div id="displayBlock" class="displayBlock">
+           <p>>>The ship is being heavily damaged! Select 3 areas to recover!</p> 
+        </div>
+
+        <div class="door1">
+            asdfghjkl
+        </div>
+
+        <div class="door2">
+            asdfghjk
+        </div>
+
+        <div id="selectionBox">
+            <table>
+                <tr class="tableTitle">
+                    <th>Areas</th>
+                </tr>
+                
+                <tr>
+                    <td>>Engine Thrusters</td>
+                </tr>
+                
+                <tr>
+                    <td>>Life Support</td>
+                </tr>
+                
+                <tr>
+                    <td>>Communication Systems</td>
+                </tr>
+                
+                <tr>
+                    <td>>Sheilding Systems</td>
+                </tr>
+                
+                <tr>
+                    <td>>Medical Bay</td>
+                </tr>
+                
+                <tr>
+                    <td>>Navigation Systems</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="rightBlock">
+
+        <div class="inventoryBlock">
+             <h2>Inventory</h2>
+        </div>
+    
+        <div class="cluesBlock">
+             <h2>Clues</h2>
+        </div>
+    </div>
+
+    <button class="settingsButton" onclick="openAccessibility()">Accessibility</button>
+
+    <div id="settingsContainer">
+        <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
+    </div>
+
+    
+    <div class="bottomBlock">
+        <input id="userIn" class="terminal" autofocus autocomplete="off">
+    </div>
+    
+</body>
+</html>
