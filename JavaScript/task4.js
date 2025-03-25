@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (userInputs.size === task4Inputs.length) {
                         displayBlock.innerHTML = "YOU HAVE SELECTED THE APPROPRIATE LOCATIONS! <br> THE SHIP IS SAVED! <br> Type CONTINUE";
                         alert("Good Job!");
-                        window.location.href="../HTML/Nazzal.html"
+                        window.location.href="../HTML/task4Memory.html"
                         userInputs.clear();
                     } else {
                         displayBlock.innerHTML = `You've entered: ${Array.from(userInputs).join(", ")}<br>Keep going!`;
