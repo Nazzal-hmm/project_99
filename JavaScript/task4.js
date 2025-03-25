@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const displayBlock = document.getElementById("displayBlock");
 
     // Track the user's correct inputs for Task4final scene
-    const task4Inputs = new Set(["engine thrusters", "life support", "navigation systems"]);
     const userInputs = new Set();
     userInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-            const inputValue = userInput.value.trim();
+            const inputValue = userInput.value.toLowerCase().trim();
+            alert(inputValue);
             // Check for empty input
             if (!inputValue) {
                 displayBlock.innerHTML = "Please enter a command!";
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     userInput.value = "";
                 }
             }
-            const task4Inputs=["Engine Thrusters", "Life Support", "Navigation Systems"];
+            const task4Inputs=["engine thrusters", "life support", "navigation systems"];
             alert("Before Initialisation");
             // Task4final Scene
             if (window.location.pathname === "/HTML/task4.html") {
