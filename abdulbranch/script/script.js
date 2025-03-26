@@ -24,9 +24,9 @@ function openAccessibility() {
 const container = document.getElementById("settingsContainer");
 container.style.display = "block"
 }
-function closeIframe(){
-document.getElementById("settingsContainer").style.display = "none";
-}
+// function closeIframe(){
+// document.getElementById("settingsContainer").style.display = "none";
+// }
 
 //Scenes
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,17 +67,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     
                     if (userInputs.size === task4Inputs.size) {
-                        displayBlock.innerHTML = "YOU HAVE SELECTED THE APPROPRIATE LOCATIONS! <br> THE SHIP IS SAVED!";
+                        displayBlock.innerHTML = `YOU HAVE SELECTED THE APPROPRIATE LOCATIONS! THE SHIP IS SAVED!`;
                         
                         userInputs.clear();
                     } else {
-                        displayBlock.innerHTML = `You've entered: ${Array.from(userInputs).join(", ")}<br>Keep going!`;
+                        displayBlock.innerHTML = `You've entered: ${Array.from(userInputs).join(", ")}Keep going!`;
                     }
                 } else {
-                    displayBlock.innerHTML = `${inputValue} is an invalid input!<br>Type one of the provided opotions`;
+                    displayBlock.innerHTML = `${inputValue} is an invalid input!Type one of the provided opotions`;
                 }
                 
                 userInput.value = "";
+            }
+
+            if (window.location.pathname === "/sites/actualscene1.html") {
+                if (inputValue === "go window") {
+                    location.href = "/sites/actualscene1pt2.html";
+                } else if(inputValue== "go door") {
+                    location.href = "/sites/attenstionScreen.html";
+                }
+                    else{
+                    displayBlock.innerHTML = `${inputValue} is an Invalid input!<br>Type 'go window' to check the window or go door to go to the next room!`;
+                    userInput.value = "";
+                }
+            }
+
+            if (window.location.pathname === "/sites/actualscene1pt2.html") {
+                if (inputValue === "go corridor") {
+                    location.href = "/sites/actualscene1.html";
+            }else{
+                displayBlock.innerHTML = `${inputValue} is an Invalid input!<br>Type 'go corridor' to go back to the corridor!`;
+                userInput.value = "";
+            }
             }
         }
     });

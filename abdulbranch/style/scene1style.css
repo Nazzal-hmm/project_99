@@ -10,7 +10,7 @@ body{
 .container{
     position: relative;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     font-family: "Pixelify Sans", serif;
     margin-top: 0.5%;
     margin-left: 0.5%;
@@ -67,7 +67,7 @@ body{
     0% { left: 0%; top: 0; opacity: 1; }
     100% { left: -50%; top: 0; opacity: 1; } 
 }
-
+  
 
 @keyframes door2{
     /* 0% { right: -50%; top: 0; opacity: 1; }  
@@ -77,6 +77,78 @@ body{
     100% { right: -50%; top: 0; opacity: 1; } 
 }
 
+
+
+
+
+/* 
+.blink1{
+    z-index: 3;
+    width: 99%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    background-color: black;
+    animation: ease-in-out blinking1 1.5s forwards;
+}
+
+.blink2{
+    z-index: 3;
+    width: 99%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    background-color: black;
+    animation: ease-in-out blinking2 1.5s forwards;
+}
+
+@keyframes blinking1 {
+    0%{bottom:80%}
+    20%{bottom: 100%;}
+    60%{bottom: 50%;}
+    60%{bottom: 100%}
+    80%{bottom: 50%;}
+    100%{bottom: 100%;}
+}
+
+@keyframes blinking2 {
+    0%,10%{top:80%}
+    20%,40%{top: 100%;}
+    60%{top: 50%;}
+    60%{top: 100%}
+    80%{top: 50%;}
+    100%{top: 100%;}
+} */
+
+.flashing{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(228, 19, 19, 0.364);
+    z-index: 3;
+    animation: flashingLight forwards;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flashingLight {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 100;
+    }
+    50%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 100;
+    }
+    100%{
+        opacity: 0;
+    }
+    
+}
 
 .displayBlock{
     white-space: normal;
@@ -89,6 +161,7 @@ body{
     font-family: "Pixelify Sans", serif;
     font-size: 2vw;
     top: 78%;
+    left: 0.8em;
     border-style:solid ;
     border-color: grey;
     z-index:2;
@@ -201,15 +274,16 @@ body{
 }
 
 #settingsContainer {
-    background-color: greenyellow;
+    overflow: hidden;
+    background-color: transparent;
     display: none;
     position: fixed; 
     top: 50%; 
     left: 50%;
-    width: 500px;
-    height: 400px;
-    border: 2px solid #fff;
-    border-radius: 20px;
+    width: 50%;
+    height: 60%;
+    border-radius: 10px;
+    border-radius: 10px;
     transform: translate(-50%, -50%);
     z-index: 100;
     transition: 0.3s ease-in-out;
@@ -219,4 +293,44 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px red; }
+    50% { text-shadow: 0 0 15px red, 0 0 25px red; }
+    100% { text-shadow: 0 0 5px red; }
+}
+
+.main-box{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    top:30%; 
+    right: 1.5%;
+    z-index: 2;
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.ATTENTION{
+    display: flex;
+    font-size: 70px;
+    /* font-family: 'Courier New', Courier, monospace; */
+    color: red;
+    font-weight: bold;
+    animation: glow 1s infinite alternate;
+    z-index: 2;
+}
+
+.text-alert {
+    display: flex;
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0 0 10px red;
+    animation: glow 1s infinite alternate;
+    font-weight: bold;
+  
 }

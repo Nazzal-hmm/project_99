@@ -3,67 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style/scene1style.css">
-    <title>System Failure</title>
+    <script src="../script/script.js"> </script>
 </head>
 <body>
- 
-<div class="container">
-   
-    <img class="gameImage" src="../images/screen.webp" alt="image">
 
+    <div class="container">
+        <img class="gameImage" src="../images/Unnamed2.png" alt="image">
+        <!-- <div class="flashing">
+            assaf
+        </div> -->
+      
 
-    <div class="door1" id="leftDoor">
-        <!-- Door content -->
-    </div>
-
-    <div class="door2" id="rightDoor">
-        <!-- Door content -->
-    </div>
-
-    <div class="displayBlock">
-        SUCK MY CYOCK
-    </div>
-    
-    <div class="main-box">
-        <span class="ATTENTION">ATTENTION!</span>
-
-        <span  class="text-alert">SYSTEM FAILURE DETECTED <br>
-            CRITICAL ERROR IN LIFE SUPPORT SYSTEMS <br>
-            EMERGENCY PROTOCOLS INITIATED
-        </span>
+        <div id="displayBlock" class="displayBlock">
+           You stare out the cabin window and the void stares back at you... <br>
+           This is too close for comfort... Much too close...<br>
+            [Enter <span style="color: white">"go corridor"</span> to go back to the corridor].
+        </div>
 
     </div>
-
-</div>
 
     <div class="rightBlock">
 
         <div class="inventoryBlock">
-            <h2>Inventory</h2>
-            
-            
-            
+             <h2>Inventory</h2>
         </div>
     
         <div class="cluesBlock">
              <h2>Clues</h2>
         </div>
-       
     </div>
 
-    <button class="settingsButton" onclick="openSettings()">Settings</button>
+    <button class="settingsButton" onclick="openAccessibility()">Accessibility</button>
 
     <div id="settingsContainer">
         <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
     </div>
-  
 
+    
     <div class="bottomBlock">
         <input id="userIn" class="terminal" autofocus autocomplete="off">
-    </input>
     </div>
+    
 </body>
 </html>

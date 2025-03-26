@@ -194,27 +194,3 @@ iframe {
     height: 100%;
     border: none;
 }
-
-@keyframes glow {
-    0% { text-shadow: 0 0 5px red; }
-    50% { text-shadow: 0 0 15px red, 0 0 25px red; }
-    100% { text-shadow: 0 0 5px red; }
-}
-
-.ATTENTION{
-    font-size: 70px;
-    font-family: 'Courier New', Courier, monospace;
-    color: red;
-    font-weight: bold;
-    animation: glow 1s infinite alternate;
-    text-align: center;
-}
-
-.text-alert {
-    color: red;
-    text-align: center;
-    font-size: 30px;
-    text-shadow: 0 0 10px red;
-    animation: glow 1s infinite alternate;
-    font-weight: bold;
-}

@@ -3,36 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-    <title>Settings</title>
-    <link rel="stylesheet" href="../style/settings.css">
-</head>
-
-<body>   
-    <h1>Settings</h1>
-    <div>  <button class="exitButton" onclick="parent.closeIframe()">EXIT</button> </div>
-
-  
-    <label for="volume-slider">Music Volume:</label>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
-    <button id="save-settings">Save Settings</button>
-
-    <script>
-        const volumeSlider = document.getElementById('volume-slider');
-        const savedVolume = localStorage.getItem('musicVolume');
-        if (savedVolume) {
-            volumeSlider.value = savedVolume;
+    <title>Game Accessibility Settings</title>
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --background-color: rgba(245,245,245);
+            --button-color: #3498db;
+            --button-text: white;
+            --font-size-base: 16px;
+            --animation-speed: 1s;
         }
 
-        document.getElementById('save-settings').addEventListener('click', () => {
-            const volume = volumeSlider.value;
-            localStorage.setItem('musicVolume', volume);
+    
+        
+        body {
+            /* filter: blur(10px); */
+            display: flex;
+            align-items: center;
+            align-self: center;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 2%;
+            transition: all 0.3s ease-in;
+            font-size: var(--font-size-base);
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        /* High contrast mode */
+        body.high-contrast {
+            --text-color: #fff;
+            --background-color: #000;
+            --button-color: #ffff00;
+            --button-text: #000;
+            --primary-color: #ffff00;
+            --secondary-color: #fff;
+     
+        }
+
+        /* Large text mode */
+        body.large-text {
+            --font-size-base: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .settings-container {
+            width: 100%;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.high-contrast .settings-container {
+            background-color: #222;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .setting-group {
+            display: flex;
+            /* margin-bottom: 1%;
+            padding-bottom: 1%; */
+            border-bottom: 1px solid #eee;
+        }
+
+        body.high-contrast .setting-group {
+            border-bottom: 1px solid #444;
+        }
+
+        .setting-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .setting-title {
+            font-size: 2vw;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .setting-description {
+            font-size: 2vw;
+            /* font-size: 0.9rem; */
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+       /* Toggle switch styles */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px; /* Adjust width */
+    height: 25px; /* Adjust height */
+}
+
+
+
+/* Slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+/* Toggle knob */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px; /* Ensures the knob starts on the left */
+    bottom: 2.5px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* Active state */
+input:checked + .slider {
+    background-color: var(--button-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 5px var(--button-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(25px); /* Moves to the right when checked */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .toggle-switch {
+        width: 40px;
+        height: 20px;
+    }
+
+    .slider:before {
+        height: 16px;
+        width: 16px;
+        left: 3px; /* Ensure it starts at the left */
+        transform: translateX(0); /* Prevents initial misalignment */
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(18px); /* Adjust for smaller screens */
+    }
+}
+
+        /* Button styles */
+        button {
+            background-color: var(--button-color);
+            color: var(--button-text);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:focus {
+            outline: 3px solid var(--primary-color);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+       }
+
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Accessibility Settings</h1>
+        <div class="setting-title">Visual Settings</div>
+        <div class="setting-group">
+            <div class="setting-description">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="highContrastToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>High Contrast Mode</span>
+            </div>
+            
+            <div class="setting-description">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="largeTextToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Large Text Mode</span>
+            </div>
+        </div>
+        
+        <div class="setting-title">Audio Settings</div>
+        <div class="setting-group">
+            <div class="setting-description">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="muteAudioToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Mute All Audio</span>
+            </div>
+        </div>
+
+
+        <div class="setting-title">Screen Reader Settings</div>
+        <div class="setting-group">
+            <div class="setting-description">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="screenReaderToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Enable Screen Reader Support</span>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button id="saveSettings" >Save Settings</button>
+            <button id="resetSettings">Reset to Default</button>
+        </div>
+    </div>
+
+    <script>
+        // DOM elements
+        const highContrastToggle = document.getElementById('highContrastToggle');
+        const largeTextToggle = document.getElementById('largeTextToggle');
+        const muteAudioToggle = document.getElementById('muteAudioToggle');
+        const saveSettingsBtn = document.getElementById('saveSettings');
+        const resetSettingsBtn = document.getElementById('resetSettings');
+
+        // Load saved settings
+        function loadSettings() {
+            if (localStorage.getItem('highContrast') === 'true') {
+                highContrastToggle.checked = true;
+                document.body.classList.add('high-contrast');
+            }
+            
+            if (localStorage.getItem('largeText') === 'true') {
+                largeTextToggle.checked = true;
+                document.body.classList.add('large-text');
+            }
+            
+            if (localStorage.getItem('muteAudio') === 'true') {
+                muteAudioToggle.checked = true;
+                // Implement audio muting logic here
+            }
+        }
+
+        // Save settings
+        function saveSettings() {
+            localStorage.setItem('highContrast', highContrastToggle.checked);
+            localStorage.setItem('largeText', largeTextToggle.checked);
+            localStorage.setItem('muteAudio', muteAudioToggle.checked);
+            document.body.style.display="none"
+        }
+
+        // Reset settings to default
+        function resetSettings() {
+            localStorage.removeItem('highContrast');
+            localStorage.removeItem('largeText');
+            localStorage.removeItem('muteAudio');
+            
+            highContrastToggle.checked = false;
+            largeTextToggle.checked = false;
+            muteAudioToggle.checked = false;
+            
+            document.body.classList.remove('high-contrast', 'large-text');
+            
+            // alert('Settings reset to default');
+        }
+
+        // Event listeners
+        highContrastToggle.addEventListener('change', function() {
+            document.body.classList.toggle('high-contrast', this.checked);
         });
+
+        largeTextToggle.addEventListener('change', function() {
+            document.body.classList.toggle('large-text', this.checked);
+        });
+
+        saveSettingsBtn.addEventListener('click', saveSettings);
+        resetSettingsBtn.addEventListener('click', resetSettings);
+
+        const screenReaderToggle = document.getElementById('screenReaderToggle');
+
+function loadScreenReaderSetting() {
+    if (localStorage.getItem('screenReader') === 'true') {
+        screenReaderToggle.checked = true;
+        enableScreenReaderSupport();
+    }
+}
+
+function saveScreenReaderSetting() {
+    localStorage.setItem('screenReader', screenReaderToggle.checked);
+}
+
+function enableScreenReaderSupport() {
+    // Add ARIA labels to important elements
+    document.querySelectorAll('button, a, input, [role="button"]').forEach(el => {
+        if (!el.getAttribute('aria-label')) {
+            el.setAttribute('aria-label', el.textContent);
+        }
+    });
+
+    // Add skip to content link
+    if (!document.getElementById('skip-link')) {
+        const skipLink = document.createElement('a');
+        skipLink.id = 'skip-link';
+        skipLink.href = '#main-content';
+        skipLink.className = 'sr-only';
+        skipLink.textContent = 'Skip to main content';
+        document.body.insertBefore(skipLink, document.body.firstChild);
+    }
+}
+
+function disableScreenReaderSupport() {
+    // Remove ARIA labels
+    document.querySelectorAll('[aria-label]').forEach(el => {
+        el.removeAttribute('aria-label');
+    });
+
+    // Remove skip to content link
+    const skipLink = document.getElementById('skip-link');
+    if (skipLink) {
+        skipLink.remove();
+    }
+}
+
+screenReaderToggle.addEventListener('change', function() {
+    if (this.checked) {
+        enableScreenReaderSupport();
+    } else {
+        disableScreenReaderSupport();
+    }
+    saveScreenReaderSetting();
+});
+
+// Call this function when initializing your settings
+loadScreenReaderSetting();
+
+
+        // Initialize settings
+        loadSettings();
     </script>
-
-
-   
 </body>
 </html>
