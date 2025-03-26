@@ -30,7 +30,7 @@ body{
 }
 
 .door1{
-  background-image: url(../images/door.png);
+  background-image: url(../images/door.jpg);
   background-size:cover;
   background-repeat: no-repeat;
   z-index: 3;
@@ -42,7 +42,7 @@ body{
 }
 
 .door2{
-  background-image: url(../images/door.png);
+  background-image: url(../images/door.jpg);
   transform: scaleX(-1);
   background-size: cover;
   background-repeat: no-repeat;
@@ -189,9 +189,9 @@ body{
 .terminal{
   width: 100%;
   background-color: black;
-  color:orange;
+  color:greenyellow;
   font-family: "Pixelify Sans", serif;
-  font-size: 50px;
+  font-size: 30px;
   border: 5px;
 }
 

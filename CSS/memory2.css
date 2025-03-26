@@ -30,7 +30,7 @@ body{
 }
 
 .door1{
-  background-image: url(../images/door.png);
+  background-image: url(../images/door.jpg);
   background-size:cover;
   background-repeat: no-repeat;
   z-index: 3;
@@ -42,7 +42,7 @@ body{
 }
 
 .door2{
-  background-image: url(../images/door.png);
+  background-image: url(../images/door.jpg);
   transform: scaleX(-1);
   background-size: cover;
   background-repeat: no-repeat;
@@ -289,7 +289,9 @@ iframe {
 }
 
 .continue-button{
-  font-size: 5rem;
+  font-size: 5vh;
+  background-color: red;
+  color: white;
   font-family: 'Courier New', Courier, monospace;
   opacity:0;
   animation: fadein 1s ease-in-out 5s forwards;
