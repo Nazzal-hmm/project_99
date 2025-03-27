@@ -1,0 +1,205 @@
+body {
+    background-image: url(../images/NewBackground.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    display: flex;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+h2{
+    margin: 0;
+    font-family: "Pixelify Sans", serif;
+    font-size:45px;
+    color: #f9c857;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+
+/* Title */
+.title {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #f9c857;
+    font-family: "Pixelify Sans", serif;
+    font-size: 5vw;
+    text-shadow: 5px 8px black;
+    padding-top: 0;
+}
+
+/*Container*/
+.container {
+    /* background-color: red; */
+    position: fixed;
+    top: 55%;
+    left: 80%;
+    transform: translate(-90%, -55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 400px;
+    height: 400px;
+}
+
+
+#settingsContainer {
+    background-color: wheat;
+    display: none;
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    width: 500px;
+    height: 400px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    transition: 0.3s ease-in-out;
+}
+ 
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+ 
+
+/* Menu Buttons  */
+.buttons {
+    width: 100%;
+    position: relative;
+    padding: 20px 5%;
+    border-radius: 12px;
+    border: 5px solid grey;
+    font-family: "Pixelify Sans", serif;
+    font-weight: 700;
+    font-size: 30px;
+    background-color: #f9c857;
+    overflow: visible;
+    --border-size: 2px;
+    white-space: nowrap;
+}
+
+.buttons::before {
+    content: '';
+    position: absolute;
+    border-radius: 12px;
+    border: var(--border-size) solid orangered;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: orangered;
+    z-index: -1;
+    transition: top, bottom, left, right 100ms ease-in-out;
+}
+
+.buttons:hover::before{
+    top: calc(var(--border-size) * -5);
+    bottom: calc(var(--border-size) * -5);
+    left: calc(var(--border-size) * -5);
+    right: calc(var(--border-size) * -5);
+}
+
+
+/*Leaderboard*/
+.leaderboard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.leaderboard table {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.leaderboard table, th, td {
+    width: 500px;
+    font-family: "Pixelify Sans", serif;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #f9c857;
+    border: 1px solid;
+    border-radius: 12px;
+    white-space: nowrap;
+    border-collapse: collapse;
+}
+
+/* Inputs*/
+.container input{
+    font-family: "Pixelify Sans", serif;
+    font-size: 20px;
+    border-color:grey;
+    padding: 12px;
+    border-radius: 12px;
+    border-width: 5px;
+}
+
+
+/* Flying Image  */
+.flier {
+    pointer-events: none;
+}
+
+
+
+.flier > * {
+    animation: fly 60s linear infinite;
+    pointer-events: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-120%) translateY(-120%) rotateZ(0); /* Reduced off-screen offset */
+    z-index: 999999;
+    font-size: 40px;
+    background-color: darkgray;
+    font-family: "Pixelify Sans", serif;
+    border-radius: 12px;
+    border: 5px solid;
+}
+
+@keyframes fly {
+    98%, 1% { 
+        display: block;
+        transform: translateX(-100%) translateY(100vh) rotateZ(0deg);
+    }
+    16% {
+        transform: translateX(100vw) translateY(-100%) rotateZ(180deg);
+    }
+    17%, 18% {
+        transform: translateX(100vw) translateY(-30%) rotateZ(0deg);
+    }
+    40% {
+        transform: translateX(-200%) translateY(3vh) rotateZ(-180deg);
+    }
+    40%, 43% {
+        transform: translateX(-200%) translateY(-100%) rotateZ(-180deg);
+    }
+    65% {
+        transform: translateX(100vw) translateY(50vh) rotateZ(0deg);
+    }
+    65%, 68% {
+        transform: translateX(20vw) translateY(-200%) rotateZ(180deg);
+    }
+    95% {
+        transform: translateX(10vw) translateY(100vh) rotateZ(0deg);
+    }
+}
+
+
+#errorMessage {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 5px;
+}

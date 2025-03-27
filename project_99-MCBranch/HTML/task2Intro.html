@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 Intro</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
+    <link rel="stylesheet" href="../CSS/intro.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/intro.css">
+    <title>Task2</title>
+    <script src="../JavaScript/playerProgress.js"></script>
+    <script>
+        // Example call when a player completes a task
+        updatePoints('Task2intro', true); // Adjust parameters based on the task and player's action
+    </script>
+</head>
+<body>
+
+    <div class="container">
+          <div class = Typewriter>
+            <h2 id = "Heading" >Task 2 : Gyroscopic Calibration</h2>
+            <div class = content>
+                <p id = "pstate"> The Spacecraft is spinning in irregular intervals thus destroying the stability it. But you seem to have forgotten the calibration codes. You look around the spacecraft in a frantic search to find the codes. <br> You then see the current position of the spacecraft in terms of X-axis, Y-axis, Z-axis in the console as <strong id = "e">(4,5,9) </strong> if the blackhole is treated as the origin (0,0,0) and 3 sets of equations beside the console. 
+                <br><br>
+                Maybe solving them will give you the codes for X, Y, Z axes?
+                </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="rightBlock">
+    
+            <div class="inventoryBlock">
+                <h2>Inventory</h2>
+                 
+            </div>
+            <div class="cluesBlock">
+                 <h2 id = "clues">Clues</h2>
+                 <div>
+                    <p class = "Equations">
+                        <br><br><br>
+                        1. Pitch (θ)
+                        Equation:
+                        θ= 3×(Y+2)−X÷2 <br><br>
+        
+                        2. Yaw (ψ)
+                        Equation:
+                        ψ=(X+Y)×2−Z+4 <br><br>
+        
+                        3. Roll (φ)
+                        Equation:
+                        φ=X + (Y x Z)+5
+                        <br>
+                        <br>
+                        <strong id="s">Please note that you need to know the precedence order to correctly solve the equations</strong>
+                        </p>
+                    </div>
+            </div>
+           
+        </div>
+    
+        <button class="settingsButton" onclick="openSettings()">Accessibility</button>
+    
+        <div id="settingsContainer">
+            <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
+        </div>
+      
+    
+        <div class="bottomBlock">
+        <input class="terminal" type="text" placeholder=">>>Input Here in the form of X,Y,Z ..." 
+        class="terminal" >
+        <p id = "message"></p>
+        </div>
+    
+    <script src="../JavaScript/intro.js"></script>
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
+</body>
+</html>
