@@ -1,0 +1,106 @@
+/* General body styling */
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Container for the Star Wars-style crawl */
+.star-wars-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+/* The scrolling text */
+.crawl-text {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  color: #feda4a;
+  font-size: 6.5vh;
+  font-weight: bold;
+  transform: rotateX(25deg);
+  animation: crawl 40s linear forwards;
+}
+
+/* Ensures proper spacing for readability */
+.text-content {
+  position: relative;
+  padding-bottom: 50vh;
+}
+
+/* Star Wars-style scrolling animation */
+@keyframes crawl {
+  0% {
+      top: 100vh;
+      transform: rotateX(25deg) translateZ(0);
+  }
+  100% {
+      top: -4000px;
+      transform: rotateX(25deg) translateZ(-2000px);
+  }
+}
+
+/* Individual paragraph styling */
+.crawl-text p {
+  margin: 55px 0;
+  line-height: 1.8;
+}
+
+/* Terminal-style choice box */
+.choice-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: green;
+  background-color: black;
+  padding: 2em;
+  border-radius: 5px;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+  border: 2px solid green;
+  display: none; /* Hidden by default */
+  opacity: 0;
+  animation: fadeIn 2s forwards; /* Smooth fade-in */
+}
+
+/* Yes & No button styles */
+.choice-buttons {
+  margin-top: 20px;
+}
+
+.choice-buttons button {
+  font-size: 1.5em;
+  font-family: "Courier New", Courier, monospace;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#yes-button {
+  color: limegreen;
+}
+
+#no-button {
+  color: red;
+}
+
+/* Fade-in animation for the terminal box */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

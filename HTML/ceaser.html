@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <title>Caesar Cipher Slider</title>
+    <script src="../JavaScript/gameTimer.js"></script>
+    <link rel="stylesheet" href="../CSS/ceaser.css">
+    <script src="../JavaScript/playerProgress.js"></script>
+  
+</head>
+<body >
+    <div class="container">
+        <div class="displayBlock"></div>
+        <div class="door1" id="leftDoor"></div>
+        <div class="door2" id="rightDoor"></div>
+        <div class="main-container">
+            <h1 class="header">Caesar Cipher Unscrambler</h1>
+            <h1 class="encrypted">Encrypted Message : HZBUZ</h1>
+            <input type="text" id="inputText" placeholder="Enter scrambled text">
+            <label for="shiftSlider">Shift: <span id="shiftValue">1</span></label>
+            <input type="range" id="shiftSlider" min="1" max="19" value="1">
+            <p id="outputText">Unscrambled text will appear here</p>
+            <div class="enterAnswer">
+                <input type="text" id="inputTextAnswer" placeholder="Enter Decrypted text">
+            </div>
+        </div>
+    </div>
+    <div class="rightBlock">
+        <div class="inventoryBlock">
+            <h2>Inventory</h2>
+        </div>
+        <div class="cluesBlock">
+            <h2>Clues</h2>
+            <div class="clue">
+                <p><b class="glowwy">Seven</b> whispers cloak the night,</p>
+                <p> A code in shadows, <b class="glowwy">twice</b> their might.</p>
+                <p> With every step, the truth retreats,</p>
+                <p> A cipher <b class="glowwy">paired</b> in dark defeats.</p>
+                <p> You think you’re free? But here I stand,</p>
+                <p>Guiding your path with a steady hand.</p>
+            </div>
+        </div>
+    </div>
+    <button class="settingsButton" onclick="openSettings()">Accessibility</button>
+    <div id="settingsContainer">
+        <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
+    </div>
+    <script src="../JavaScript/ceaser.js"></script>
+</body>
+</html>

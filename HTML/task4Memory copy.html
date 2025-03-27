@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/memory4.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <title>Memory Unlocked!</title>
+</head>
+<body>
+  <div class="container">
+    
+      <div class="door1" id="leftDoor">
+          <!-- Door content -->
+      </div>
+  
+      <div class="door2" id="rightDoor">
+          <!-- Door content -->
+      </div>
+      
+      <div class="main-box">
+          <div class="scene">
+              <p id = "line1" class = "line1">
+                Flickers of light, the hum of despair
+              </p>
+              <p id="line1" class = "line2">
+                Power wanes, the air too thin to bear
+              </p>
+              <p id="line1" class = "line3">
+                Systems fail, a warning bright
+              </p>
+              <p id="line1" class = "line4">
+                The darkened corners long for flight
+              </p>
+              <br><br>
+              <p id="line1" class="line5">
+                A whisper calls from deep within
+              </p>
+              <p id="line1" class = "line6">
+                You know the asnwer, let it begin
+              </p>
+              <p id="line2" class = "line7">
+                <strong>
+                  A choice made here, beneath your skin-
+                </strong>  
+              </p>
+              <p id="line2" class="line8">
+                <strong>
+                Do you save yourself or give in??
+              </strong>
+              </p>
+          </div>
+        <button onclick="location.href='../HTML/Nztask3.html'"class="continue-button">Continue</button>
+      </div>
+      
+  </div>
+  
+      <div class="rightBlock">
+  
+          <div class="inventoryBlock">
+              <h2>Inventory</h2>
+               
+          </div>
+          <div class="cluesBlock">
+               <h2>Clues</h2>
+          </div>
+         
+      </div>
+  
+      <button class="settingsButton" onclick="openSettings()">Accessibility</button>
+  
+      <div id="settingsContainer">
+          <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
+      </div>
+</body>
+</html>
