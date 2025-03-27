@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory 3</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
+    <link rel="stylesheet" href="../CSS/Memory3.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <!-- Add your other head elements here -->
+</head>
+<body>
+  <div class="container">
+      <div class="door1" id="leftDoor">
+          <!-- Door content -->
+      </div>
+  
+      <div class="door2" id="rightDoor">
+          <!-- Door content -->
+      </div>
+      
+      <div class="main-box">
+          <div class="scene">
+              <p id="poem-line1" class="line1">
+                Through tangled code, you twist and turn,
+              </p>
+              <p id="poem-line2" class="line2">
+                An audio log begins to burn.
+              </p>
+              <p id="poem-line3" class="line3">
+                A file locked, its secrets sealed,
+              </p>
+              <p id="poem-line4" class="line4">
+                Frustration rises—nothing revealed.
+              </p>
+              <br>
+              <p id="poem-line5" class="line5">
+                Each line you crack, each door you pry,
+              </p>
+              <p id="poem-line6" class="line6">
+                Reveals the lies you can't deny.
+              </p>
+              <p id="poem-line7" class="line7">
+                <strong>The log flickers, a code in disguise,</strong>  
+              </p>
+              <p id="poem-line8" class="line8">
+                <strong>The truth lies hidden behind these lies.</strong>
+              </p>
+              <br>
+              <p id="poem-line13" class="line13">
+                <strong>"You're unlocking the past you've fled,</strong>
+              </p>
+              <p id="poem-line14" class="line14">
+                <strong>But don't listen too close to what's been said."</strong>
+              </p>
+          </div>
+          <button onclick="location.href='../HTML/ceaserEntry.html'" class="continue-button">Continue</button>
+      </div>
+  </div>
+  
+  <div class="rightBlock">
+      <div class="inventoryBlock">
+          <h2>Inventory</h2>
+      </div>
+      <div class="cluesBlock">
+          <h2>Clues</h2>
+          <div>
+            <p class = 'woah'>
+              WOAH! <br>you just found a corrupted Audio Log!
+            </p>
+          </div>
+      </div>
+  </div>
+
+  <button class="settingsButton" onclick="openSettings()">Accessibility</button>
+
+  <div id="settingsContainer">
+      <iframe src="settings.html" width="100%" height="400" frameborder="0"></iframe>
+  </div>
+  
+  
+</body>
+</html>
+
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
+    <!-- Add your other script tags here -->
+</body>
+</html>

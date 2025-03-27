@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <title>Load Game</title>
+    <link rel="stylesheet" href="../CSS/welcomePageStyles.css">
+</head>
+<body>
+    <div class="title">
+        <h1>FRACTURED HORIZON</h1>
+    </div>
+
+    <form class="container" id="loginForm">
+        <h2>ENTER DETAILS</h2>
+        <input id="username" type="text" name="Username" placeholder="Username..." required>
+        <input id="password" type="password" name="Password" placeholder="Password..." required>
+        <p id="errorMessage" style="color: red; display: none;"></p>
+        <button type="submit" class="buttons">
+            Load Last Save
+        </button>
+    </form>
+    
+    <div class="flier">
+        <button>Press F11</button>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+    
+            fetch('../PHP/login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // Handle HTTP errors
+                    return response.text().then(text => {
+                        throw new Error(`HTTP error! status: ${response.status}, response: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data && data.success) {
+                    // Initialize timer session storage
+                    sessionStorage.setItem('gameTimeRemaining', 10 * 60);
+                    sessionStorage.setItem('currentPage', 'Corridor1.html');
+                    window.location.href = 'Corridor1.html';
+                } else {
+                    errorMessage.textContent = data?.message || 'Login failed';
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.textContent = 'Login service unavailable. Please try again later.';
+                errorMessage.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

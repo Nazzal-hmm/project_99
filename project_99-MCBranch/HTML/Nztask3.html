@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NZ Task 3</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
+    <link rel="stylesheet" href="../CSS/Nztask3.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <!-- Add your other head elements here -->
+</head>
+<body>
+<audio src="../AUDIO/doorSound.mp3" id="doorSound" preload="auto"></audio>
+
+<div id="wrapper">
+    <div class="0_0 light off"></div>
+    <div class="0_1 light off"></div>
+    <div class="0_2 light off"></div>
+    ...
+  </div>
+
+<div class="container">
+    <img class="gameImage" src="../images/backgroundPicture.jpg" alt="image">
+    
+    <!-- Boxes container inside the main container -->
+    <div class="boxes-container">
+        
+        <div class="containers4">
+            <div class="led-grid-wrapper led-grid"></div>
+            <div class="neon-sign">IDLE</div>
+            <div class="arrow">
+                <div class="arrow-up-container" onclick=colorChange()>
+                    <div class="arrow-up"></div>
+                </div>
+                <div class="arrow-down-container">
+                    <div class="arrow-down"></div>
+                </div>
+            </div>
+            </div>
+            <div class="containers4">
+                <div class="led-grid-wrapper led-grid"></div>
+                <div class="neon-sign">IDLE</div>
+                <div class="arrow">
+                    <div class="arrow-up-container">
+                        <div class="arrow-up"></div>
+                    </div>
+                    <div class="arrow-down-container">
+                        <div class="arrow-down"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="containers4">
+                <div  class="led-grid-wrapper led-grid"></div>
+                <div class="arrow">
+                    <div id="wrapper">
+                        <div class="arrow-up-container">
+                            <div class="arrow-up"></div>
+                        </div>
+                        <div class="arrow-down-container">
+                            <div class="arrow-down"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="containers4">
+            <div  class="led-grid-wrapper led-grid"></div>
+            <div class="neon-sign">IDLE</div>
+            <div class="arrow">
+                <div class="arrow-up-container">
+                    <div class="arrow-up"></div>
+                </div>
+                <div class="arrow-down-container">
+                    <div class="arrow-down"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="containers4">
+            <div class="led-grid-wrapper led-grid"></div>
+            <div class="neon-sign">IDLE</div>
+            <div class="arrow">
+                <div class="arrow-up-container">
+                    <div class="arrow-up"></div>
+                </div>
+                <div class="arrow-down-container">
+                    <div class="arrow-down"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="displayBlock" class="displayBlock">
+        <p>Type "lock in" to confirm your answer!</p>
+    </div>
+</div>
+
+    
+
+    <div class="door1" id="leftDoor">
+        <!-- Door content -->
+    </div>
+
+    <div class="door2" id="rightDoor">
+        <!-- Door content -->
+    </div>
+</div>
+
+<div class="rightBlock">
+    <div class="inventoryBlock">
+        <h2>Inventory</h2>
+    </div>
+    
+    <div class="cluesBlock">
+        <h2>Clues</h2>
+    </div>
+</div>
+
+<button class="settingsButton" onclick="openSettings()">
+    Settings
+</button>
+
+<div id="settingsContainer">
+    <iframe src="../HTML/NzSettings.html" width="100%" height="400" frameborder="0"></iframe>
+</div>
+
+<div class="bottomBlock">
+    <input id="userIn" class="terminal" autofocus autocomplete="off">
+</div>
+
+<script>
+    function openSettings() {
+        var settingsContainer = document.getElementById('settingsContainer');
+        if (settingsContainer.style.display === 'block') {
+            settingsContainer.style.display = 'none';
+        } else {
+            settingsContainer.style.display = 'block';
+        }
+    }
+</script>
+
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
+    <!-- Add your other script tags here -->
+</body>
+</html>

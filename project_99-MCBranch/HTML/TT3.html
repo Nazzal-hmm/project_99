@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT3</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
+    <link rel="stylesheet" href="../CSS/TT3.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <!-- Add your other head elements here -->
+</head>
+<body>
+   
+    <div class="scene-view">
+        <div class="narration-overlay">
+            <p class="task-narration">
+                #TURBO BOOSTERS: LAST CHANCE FOR ESCAPE
+                ENTER 8-DIGIT CODE FROM CORRUPTED LOGS
+               <br> 3 ATTEMPTS REMAINING
+            </p>
+        </div>
+        <img src="../Images/black hole.jpg" alt="Boosters chamber">
+    </div>
+
+
+    <div class="right-panel">
+        <div class="corrupted-logs">
+            <h2>🚨 CORRUPTED SYSTEM LOGS</h2>
+            <div class="log-entry"> Life Support - 19:45:00</div>
+            <div class="log-entry"> Thrusters - 18:23:00</div>
+            <div class="log-entry"> Navigation - 20:17:00</div>
+            <div class="log-entry"> Reactor - 19:02:00</div>
+            
+            <div class="hint-box">
+                🔍 Clue <br>
+                Follow the path of survival: First, you must move, then power the heart,
+                <br> then breathe, then see where to go. Seek the fleeting minutes—they whisper the sequence of survival
+            </div>
+        </div>
+
+        <div class="game-terminal">
+            <input type="text" 
+                   class="code-input" 
+                   placeholder="_ _ _ _ _ _ _ _"
+                   maxlength="8"
+                   id="boost-code"
+                   onkeyup="validateCode()">
+            <a href="#" id="nextLink" style="display: none;"></a>
+        </div>
+    </div>
+    <script src="../JavaScript/TT3.js"></script>
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            const username = localStorage.getItem('username');
+            const currentTime = Date.now();
+            
+            if (confirm('Are you sure you want to exit the game?')) {
+                // Save exit time to localStorage
+                localStorage.setItem('exitTime', currentTime);
+                
+                // Update debug.html with exit time
+                fetch('../HTML/debug.html', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        exitTime: currentTime,
+                        action: 'exit'
+                    })
+                })
+                .then(() => {
+                    window.location.href = '../HTML/welcomePage.html';
+                })
+                .catch(error => {
+                    console.error('Error updating debug:', error);
+                    window.location.href = '../HTML/welcomePage.html';
+                });
+            }
+        }
+    </script>
+    <!-- Add your other script tags here -->
+</body>
+</html>
