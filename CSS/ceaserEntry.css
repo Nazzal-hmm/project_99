@@ -1,30 +1,38 @@
-body {
+body{
   display: flex;
   margin: 0;
   padding: 0;
   height: 100vh;
   background-color: black;
+  color: initial;
 }
+/* html{
+  font-size: 100px;
+} */
 
-.container {
+/* p{
+  font-size: 0.3em;
+} */
+
+.container{
   position: relative;
   display: flex;
   flex-direction: column;
   font-family: "Pixelify Sans", serif;
   margin-top: 0.5%;
   margin-left: 0.5%;
-  background-color: rgb(5, 5, 5);
+  background-color: rgb(0, 0, 0);
   padding: 5px;
   width: 74.5%;
-  height: 100%;
-  align-items: flex-end;
+  height: 75%;
+  align-items: center;
   z-index: 0;
   overflow: hidden;
 }
 
-.door1 {
-  background-image: url(../images/door.png);
-  background-size: cover;
+.door1{
+  background-image: url("images/door.png");
+  background-size:cover;
   background-repeat: no-repeat;
   z-index: 3;
   width: 50%;
@@ -34,8 +42,8 @@ body {
   animation: door1 1.5s forwards;
 }
 
-.door2 {
-  background-image: url(../images/door.png);
+.door2{
+  background-image: url("images/door.png");
   transform: scaleX(-1);
   background-size: cover;
   background-repeat: no-repeat;
@@ -47,75 +55,28 @@ body {
   animation: door2 1.5s forwards;
 }
 
-@keyframes door1 {
+@keyframes door1{
   0% { left: 0%; top: 0; opacity: 1; }
   100% { left: -50%; top: 0; opacity: 1; } 
 }
 
-@keyframes door2 {
+
+@keyframes door2{
   0% { right: 0%; top: 0; opacity: 1; }
   100% { right: -50%; top: 0; opacity: 1; } 
 }
 
-.main-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 1000vh;
-  width: 70vw;
-  flex-direction: column;
-  text-align: center;
+
+
+
+.gameImage{
+  width:100%;
+  height:100%;
+  z-index: 1;
 }
 
-.line1, .line2, .line3, .line4, .line5, .line6 , .line7, .line8{
-  color: orange;
-  font-size: clamp(15px, 3vh, 40px);
-  font-family: 'Courier New', Courier, monospace;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
- .line13, .line14 {
-  color: red;
-  font-size: clamp(20px, 4vh, 30px);
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.line1 { animation: typing 1.5s steps(50) backwards; }
-.line2 { animation: typing 1.5s steps(50) backwards; animation-delay: 1s; }
-.line3 { animation: typing 1.5s steps(50) backwards; animation-delay: 2s; }
-.line4 { animation: typing 1.5s steps(50) backwards; animation-delay: 3s; }
-.line5 { animation: typing 1.5s steps(50) backwards; animation-delay: 4s; }
-.line6 { animation: typing 1.5s steps(50) backwards; animation-delay: 5s; }
-.line7 { animation: typing 1.5s steps(50) backwards; animation-delay: 6s; }
-.line8 { animation: typing 1.5s steps(50) backwards; animation-delay: 7s; }
-.line13 { animation: typing 1.5s steps(50) backwards; animation-delay: 8s; }
-.line14 { animation: typing 1.5s steps(50) backwards; animation-delay: 9s; }
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.continue-button{
-  font-size: 7vh;
-  background-color: red;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  opacity:0;
-  animation: fadein 1s ease-in-out 5s forwards;
-  animation-delay: 12s;
-  border-radius: 20px;
-}
-
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.rightBlock {
+/* Right block */
+.rightBlock{
   padding: 0.5%;
   margin: 0.5%;
   display: flex;
@@ -126,23 +87,27 @@ body {
   background-color: darkgrey;
 }
 
-.inventoryBlock, .cluesBlock {
+.inventoryBlock{
   font-family: "Pixelify Sans", serif;
   display: flex;
   padding: 1%;
+  height: 50%;
   background-color: grey;
   margin-bottom: 1%;
 }
 
-.inventoryBlock {
+ 
+.cluesBlock{
+  font-family: "Pixelify Sans", serif;
+  display: flex;
+  background-color: grey;
   height: 50%;
+  padding: 1%;
+  margin-bottom: 1%;
+  
 }
 
-.cluesBlock {
-  height: 50%;
-}
-
-.settingsButton {
+.settingsButton{
   position: fixed;
   top: 84%;
   right: 0.5%;
@@ -175,17 +140,39 @@ body {
   z-index: -1;
 }
 
-.settingsButton:hover::before {
-  border: 5px solid greenyellow;
+.settingsButton:hover::before{
+  
+  border:5px solid greenyellow;
   top: calc(var(--border-size) * -5);
   bottom: calc(var(--border-size) * -5);
   left: calc(var(--border-size) * -5);
   right: calc(var(--border-size) * -5);
   transition: top, bottom, left, right 100ms ease-in-out;
 }
-
 .settingsButton:active {
   transform: translateY(4px);
+}
+
+/* Bottom block */
+
+.bottomBlock{
+  padding: 0.5%;
+  margin: 0.5%;
+  display: flex;
+  position: absolute;
+  bottom: 1%;
+  background-color: grey;
+  height: 18%;
+  width: 72%;
+}
+
+.terminal{
+  width: 100%;
+  background-color: black;
+  color:greenyellow;
+  font-family: "Pixelify Sans", serif;
+  font-size: 20px;
+  border: 5px;
 }
 
 #settingsContainer {
@@ -209,13 +196,55 @@ iframe {
   border: none;
 }
 
-.woah{
-  opacity: 0;
-  margin-top: 10vh;
-  font-size: 5vh;
+@keyframes glow {
+  from {
+      text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red;
+  }
+  to {
+      text-shadow: 0 0 10px red, 0 0 15px red, 0 0 20px red;
+  }
+}
+
+.ATTENTION{
+  font-size: 70px;
+  font-family: 'Courier New', Courier, monospace;
+  color: red;
+  font-weight: bold;
+  animation: glow 1s infinite alternate;
+  text-align: center;
+}
+
+.text-alert {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+  
+  animation: glow 1s infinite alternate;
+  font-weight: bold;
+}
+
+.main-box {
+  color: red;
+  font-size: 4.5vh;
+  margin-top: 7vh;;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+
+}
+
+.main-box p {
+  display: inline-block;
+  white-space: nowrap;
   overflow: hidden;
-  margin-inline: auto;
-  word-wrap: nowrap;
-  animation: fadein 4s forwards;
-  animation-delay: 11s;
+  
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: red; }
 }

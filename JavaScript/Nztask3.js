@@ -231,6 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
               if (isFullyCorrect) {
                   updateContainersDisplay('success');
                   displayBlock.innerHTML = "Correct combination! Congratulations!";
+                  window.location.href="../HTML/memory3.html"
                   gameEnded = true;
               } else {
                   updateContainersDisplay('check', checkResult);
