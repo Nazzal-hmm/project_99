@@ -1,0 +1,136 @@
+/* part2.css */
+body {
+    margin: 0;
+    padding: 20px;
+    background: #0a0a2a;
+    color: #00ff9d;
+    font-family: 'Pixelify Sans', sans-serif;
+    height: 150vh;
+    overflow:hidden;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 20px;
+    height: 85vh;
+}
+
+.scene-view {
+    border: 5px solid #00ff00;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scene-view img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.narration-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border: 2px solid #00ff00;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.task-narration {
+    color: #ffffff;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 2;
+    text-shadow: 0 0 5px #00ff00;
+    margin: 0;
+}
+
+.game-container {
+    border: 3px solid #00ff9d;
+    border-radius: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.alignment-interface {
+    text-align: center;
+    padding: 20px;
+}
+
+.vector-display {
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #00ff9d;
+    text-shadow: 0 0 10px #00ff9d;
+}
+
+.slider-container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    background: #002200;
+    border: 2px solid #00ff9d;
+    border-radius: 10px;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #00ff9d;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: #99ff99;
+    box-shadow: 0 0 15px #00ff9d;
+}
+
+.target-range {
+    color: #00ff9d;
+    margin: 15px 0;
+    font-size: 1.2em;
+}
+
+.submit-button {
+    background: #002200;
+    color: #00ff9d;
+    border: 2px solid #00ff9d;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background: #00ff9d;
+    color: #002200;
+    box-shadow: 0 0 15px #00ff9d;
+}
+
+.timer {
+    color: #ff5555;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 20px 0;
+}

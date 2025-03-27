@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5: Part 2 Thrust Vector Alignment </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="part2.css">
+   
+
+</head>
+<body>
+    <div class="main-container">
+        <div class="scene-view">
+            <div class="narration-overlay">
+                <p class="task-narration">
+                    The thrust vector is misaligned, and the ship’s trajectory is starting to skew. Move fast.<br>
+                    Target Alignment: 1.2 degrees<br>
+                    Acceptable Range: 1.0 – 1.4 degrees
+                </p>
+            </div>
+            <img src="../Images/part3.jpg" alt="Spaceship interior">
+        </div>
+
+        <div class="game-container">
+            <div class="alignment-interface">
+                <h1>🚀 THRUST VECTOR ALIGNMENT</h1>
+                <div class="timer">TIME LEFT: <span id="time">30</span>s</div>
+                <div class="vector-display" id="current-alignment">1.2°</div>
+                
+                <div class="slider-container">
+                    <input type="range" 
+                           min="0" 
+                           max="2" 
+                           step="0.1" 
+                           value="0.1" 
+                           class="slider" 
+                           id="thrust-slider">
+                </div>
+
+                <div class="target-range">
+                    TARGET RANGE: 1.0° - 1.4°
+                </div>
+
+                <button class="submit-button" onclick="submitAlignment()">
+                    LOCK IN ALIGNMENT
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentAlignment = 0.0; // Start at 0
+        let timeLeft = 30;
+        let timerInterval;
+    
+        // Initialize game
+        function initGame() {
+            timerInterval = setInterval(updateTimer, 1000);
+            document.getElementById('thrust-slider').addEventListener('input', updateDisplay);
+            updateDisplay({ target: document.getElementById('thrust-slider') }); 
+        }
+    
+        function updateTimer() {
+            timeLeft--;
+            document.getElementById('time').textContent = timeLeft;
+    
+            if (timeLeft <= 0) {
+                handleFailure();
+            }
+        }
+    
+        function updateDisplay(e) {
+            currentAlignment = parseFloat(e.target.value).toFixed(1);
+            document.getElementById('current-alignment').textContent = `${currentAlignment}°`;
+        }
+    
+        function submitAlignment() {
+            if (timeLeft <= 0) return;
+    
+            const success = currentAlignment >= 1.0 && currentAlignment <= 1.4;
+            
+            if (success) {
+                document.getElementById('current-alignment').style.color = '#00ff00';
+                document.querySelector('.slider').style.borderColor = '#00ff00';
+                
+                if (confirm('Alignment successful! Continue to the Next task?')) {
+                    window.location.href = 'task3.html';
+                }
+            } else {
+                document.getElementById('current-alignment').style.color = '#ff5555';
+                setTimeout(() => {
+                    document.getElementById('current-alignment').style.color = '#00ff9d';
+                }, 1000);
+            }
+        }
+    
+        function handleFailure() {
+            clearInterval(timerInterval);
+            alert('Mission Failed! Time expired');
+            document.querySelector('.slider').style.borderColor = '#ff0000';
+            document.getElementById('current-alignment').style.color = '#ff0000';
+        }
+        initGame();
+    </script>
+</body>
+</html>

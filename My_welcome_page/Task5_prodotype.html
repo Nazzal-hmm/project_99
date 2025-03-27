@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turbo Booster Sequence</title>
+    <link rel="stylesheet" href="2nd_prodotype_style.css">
+</head>
+<body>
+    <div class="game-container">
+        -- Task 1: Fuel Pressure -->
+        <div class="task-container" id="fuel-pressure">
+            <h2>🚀 Fuel Pressure Calibration</h2>
+            <div class="gauge"></div>
+            <input type="number" id="pressure-input" placeholder="Enter PSI (89-150)">
+            <p class="timer">Time Left: <span id="time">30</span>s</p>
+        </div>
+
+        -- Task 2: Thrust Vector -->
+        <div class="task-container" id="thrust-vector">
+            <h2>🎯 Thrust Vector Alignment</h2>
+            <input type="range" id="thrust-slider" min="0.0" max="2.0" step="0.1">
+            <p>Current Alignment: <span id="alignment-value">1.2</span>°</p>
+        </div>
+
+        -- Task 3: Booster Code -->
+        <div class="task-container" id="booster-code">
+            <h2>🔐 Booster Ignition Code</h2>
+            <input type="text" id="code-input" placeholder="Enter 4-digit code">
+            <p class="hint">Hint: "Thrusters → Reactor → Life Support → Navigation"</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript logic goes here
+    </script>
+</body>
+</html>

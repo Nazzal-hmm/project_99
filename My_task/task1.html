@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5: Part 1 </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Task5_style.css">
+    
+
+
+</head>
+<body>
+    <div class="scene-view">
+        <div class="narration-overlay">
+            <p class="task-narration"> #
+            The pressure gauge fluctuates wildly on the screen.
+            <br>
+            You have 30 seconds to stabilize the fuel pressure.
+            <br>
+            <span class="pressure-readout">
+                CURRENT PRESSURE: 89 PSI
+            </span>
+            </p>
+
+        </div>
+        
+        <img src="../Images/tank.jpg" alt="Spaceship interior">
+        
+    </div>
+    
+    <!--Right panel-->
+
+    <div class="right-panel">
+        
+        <div class="clues ">
+            <h2>🔍 Clues</h2>
+            <p class="simple">> Target Pressure: 125 psi (within a safe range of 120-130 psi)
+            </p>
+            <div class="clues-list"></div>
+        </div>
+    </div>
+
+    <!--Game terminal-->
+    
+        <div class="game-terminal">
+            <div class="terminal-output" id="terminal-output">
+                <div class="system-message typewriter">
+                    SPACE TERMINAL v1.0 - INITIALIZING...
+                </div>
+                <div class="system-message typewriter">
+                    SYSTEM READY - AWAITING COMMANDS
+                </div>
+                <p class="timer">TIME LEFT: <span id="time">30</span>s</p>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="player-input" placeholder="ENTER COMMAND...">
+                <button onclick="handleCommand()">EXECUTE</button>
+            </div>
+        </div>
+
+        <script src="turbo_pt1.js"></script>
+</body>
+</html>
