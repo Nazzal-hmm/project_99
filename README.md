@@ -1,4 +1,4 @@
-# Spacecraft Adventure Game
+# Fractured Horzion 
 
 ## Overview
 This game takes the player on an adventure through a spacecraft in critical condition. The player must navigate through various tasks and challenges to progress through the story.
