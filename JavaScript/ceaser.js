@@ -56,7 +56,7 @@ function showConfirmation(userAnswer) {
     nextPageButton.classList.add("next-page-button");
 
     nextPageButton.addEventListener("click", function () {
-        window.location.href = "next-page.html";
+        window.location.href = "../HTML/StarWars.html";
     });
 
     enterAnswerDiv.appendChild(confirmationMessage);

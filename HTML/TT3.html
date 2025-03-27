@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3: Booster Ignition Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/TT3.css">
+</head>
+<body>
+   
+    <div class="scene-view">
+        <div class="narration-overlay">
+            <p class="task-narration">
+                #TURBO BOOSTERS: LAST CHANCE FOR ESCAPE
+                ENTER 8-DIGIT CODE FROM CORRUPTED LOGS
+               <br> 3 ATTEMPTS REMAINING
+            </p>
+        </div>
+        <img src="../Images/black hole.jpg" alt="Boosters chamber">
+    </div>
+
+
+    <div class="right-panel">
+        <div class="corrupted-logs">
+            <h2>🚨 CORRUPTED SYSTEM LOGS</h2>
+            <div class="log-entry"> Life Support - 19:45:00</div>
+            <div class="log-entry"> Thrusters - 18:23:00</div>
+            <div class="log-entry"> Navigation - 20:17:00</div>
+            <div class="log-entry"> Reactor - 19:02:00</div>
+            
+            <div class="hint-box">
+                🔍 Clue <br>
+                Follow the path of survival: First, you must move, then power the heart,
+                <br> then breathe, then see where to go. Seek the fleeting minutes—they whisper the sequence of survival
+            </div>
+        </div>
+
+        <div class="game-terminal">
+            <input type="text" 
+                   class="code-input" 
+                   placeholder="_ _ _ _ _ _ _ _"
+                   maxlength="8"
+                   id="boost-code"
+                   onkeyup="validateCode()">
+            <a href="#" id="nextLink" style="display: none;"></a>
+        </div>
+    </div>
+    <script src="../JavaScript/TT3.js"></script>
+</body>
+</html>
