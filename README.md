@@ -79,7 +79,7 @@ This game takes the player on an adventure through a spacecraft in critical cond
     - **HTML**: `HTML/If Yes - TStart.html`
     - **CSS**: `CSS/TStart.css`
 
-16. **TT Series**
+16. **Turbo Task (TT) Series**
     - **TT1**
       - **HTML**: `HTML/TT1.html`
       - **CSS**: `CSS/TT1.css`
