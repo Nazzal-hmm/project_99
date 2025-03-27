@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 Intro</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
+    <link rel="stylesheet" href="../CSS/intro.css">
     <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/intro.css">
     <title>Task2</title>
     <script src="../JavaScript/playerProgress.js"></script>
@@ -71,5 +81,15 @@
         </div>
     
     <script src="../JavaScript/intro.js"></script>
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
 </body>
 </html>

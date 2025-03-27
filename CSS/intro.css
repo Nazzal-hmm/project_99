@@ -1,9 +1,23 @@
-body{
+
+body {
+    font-family: 'Overpass Mono', monospace;
+}
+
+/* Remove this class as it's not needed */
+/* .fontstyle{
+  font-family: "Overpass Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+body {
   display: flex;
   margin: 0;
   padding: 0;
   height: 100vh;
   background-color: black;
+  font-family: 'Overpass Mono', monospace; /* Fixed font declaration */
 }
 /* html{
   font-size: 100px;

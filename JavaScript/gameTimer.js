@@ -149,7 +149,29 @@ function addTime(seconds) {
 }
 
 // Save game progress when navigating between pages
+function saveProgress() {
+    const username = localStorage.getItem('username');
+    const progressData = {
+        timeRemaining: sessionStorage.getItem('gameTimeRemaining'),
+        currentPage: sessionStorage.getItem('currentPage'),
+        points: localStorage.getItem('points') || 0
+    };
+
+    fetch('../PHP/saveProgress.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            progress: progressData
+        })
+    });
+}
+
+// Add this to the existing beforeunload listener
 window.addEventListener('beforeunload', function() {
+    saveProgress();
     sessionStorage.setItem('gameTimeRemaining', timeRemaining);
 });
 
@@ -177,3 +199,84 @@ window.gameTimer = {
     addTime: addTime,
     checkCompletion: checkGameCompletion
 };
+
+
+function initializeGameTimer() {
+    const username = localStorage.getItem('username');
+    const exitTime = localStorage.getItem('exitTime');
+    const startTime = localStorage.getItem('startTime');
+    
+    if (exitTime && startTime) {
+        // Calculate elapsed time
+        const elapsedTime = exitTime - startTime;
+        
+        // Update timer with elapsed time
+        const timerElement = document.getElementById('game-timer');
+        if (timerElement) {
+            timerElement.textContent = formatTime(elapsedTime);
+        }
+        
+        // Update database and debug.html
+        Promise.all([
+            updateDatabaseTimer(username, elapsedTime),
+            updateDebugInfo(username, elapsedTime)
+        ]).then(() => {
+            // Remove exit time from storage only after successful updates
+            localStorage.removeItem('exitTime');
+        }).catch(error => {
+            console.error('Error updating timer:', error);
+        });
+    }
+    
+    // Start new timer if no previous session
+    if (!startTime) {
+        localStorage.setItem('startTime', Date.now());
+    }
+}
+
+function updateDatabaseTimer(username, elapsedTime) {
+    return fetch('../PHP/updateTimer.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            elapsedTime: elapsedTime,
+            timestamp: Date.now()
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Database update failed');
+        }
+        return response.json();
+    });
+}
+
+function updateDebugInfo(username, elapsedTime) {
+    return fetch('../HTML/debug.html', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            elapsedTime: elapsedTime,
+            action: 'timerUpdate',
+            timestamp: Date.now(),
+            currentPage: window.location.pathname
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Debug update failed');
+        }
+        return response.text();
+    });
+}
+
+// Add this at the end of the file
+document.addEventListener('DOMContentLoaded', () => {
+    initializeGameTimer();
+});

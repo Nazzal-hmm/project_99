@@ -1,44 +1,36 @@
 <?php
-$servername = "mbanerjee02.webhosting1.eeecs.qub.ac.uk";
-$username = "mbanerjee02";  // Change this to your phpMyAdmin username
-$password = "RZ2F39GsN2fSyCnk";  // Change this to your phpMyAdmin password
-$dbname = "mbanerjee02";
+include 'db_connect.php';
 
-// Connect to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
+header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Get form data
-$user = $_POST['username'];
-$pass = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password for security
-
-// Check if username already exists
-$sql_check = "SELECT * FROM users WHERE username = ?";
-$stmt = $conn->prepare($sql_check);
-$stmt->bind_param("s", $user);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    echo "<script>alert('Username already exists! Please choose a different one.'); window.location.href='index.html';</script>";
-} else {
-    // Insert new user
-    $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $user, $pass);
-
-    if ($stmt->execute()) {
-        // Redirect to welcomePage.html after successful registration
-        echo "<script>alert('Database connected! Account successfully registered.'); window.location.href='../HTML/welcomePage.html';</script>";
-    } else {
-        echo "Error: " . $stmt->error;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    
+    // Check if username exists
+    $check = $conn->prepare("SELECT username FROM players WHERE username = ?");
+    $check->bind_param("s", $username);
+    $check->execute();
+    $check->store_result();
+    
+    if ($check->num_rows > 0) {
+        echo json_encode(['success' => false, 'message' => 'Username already exists']);
+        exit;
     }
+    
+    // Insert new user
+    $stmt = $conn->prepare("INSERT INTO players (username, password) VALUES (?, ?)");
+    $stmt->bind_param("ss", $username, $password);
+    
+    if ($stmt->execute()) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Registration failed']);
+    }
+    
+    $stmt->close();
+} else {
+    echo json_encode(['success' => false, 'message' => 'Invalid request method']);
 }
-
-$stmt->close();
-$conn->close();
 ?>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 5: Part 2 Thrust Vector Alignment </title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-    
+    <title>TT2</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
     <link rel="stylesheet" href="../CSS/TT2.css">
-   
-
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <!-- Add your other head elements here -->
 </head>
 <body>
     <div class="main-container">
@@ -52,5 +52,17 @@
         </div>
     </div>
     <script src="../JavaScript/TT2.js"></script>
+
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
+    <!-- Add your other script tags here -->
 </body>
 </html>

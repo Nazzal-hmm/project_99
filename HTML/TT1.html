@@ -7,18 +7,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="../CSS/exitButton.css">
     <link rel="stylesheet" href="../CSS/TT1.css">
-    
-
-
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/playerProgress.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+        
+        // Example call when a player completes the 'TT1' task
+        updatePoints('TT1', true);
+    </script>
 </head>
 <body>
-
-
     <div class="scene-view">
         <div class="narration-overlay">
-            <p class="task-narration"> #
+            <p class="task-narration">
             The pressure gauge fluctuates wildly on the screen.
             <br>
             You have 30 seconds to stabilize the fuel pressure.
@@ -27,19 +31,13 @@
                 CURRENT PRESSURE: 89 PSI
             </span>
             </p>
-
         </div>
-        
         <img src="../images/tank.jpg" alt="Spaceship interior">
-        
     </div>
 
-
     <!--Right panel-->
-
     <div class="right-panel">
-        
-        <div class="clues ">
+        <div class="clues">
             <h2>🔍 Clues</h2>
             <p class="simple">
               > Target Pressure: 125 psi, Please adjust it to a safe Range
@@ -49,24 +47,33 @@
     </div>
 
     <!--Game terminal-->
-    <body>
-        <div class="game-terminal">
-            <div class="terminal-output" id="terminal-output">
-                <div class="system-message typewriter">
-                    SPACE TERMINAL v1.0 - INITIALIZING...
-                </div>
-                <div class="system-message typewriter">
-                    SYSTEM READY - AWAITING COMMANDS
-                </div>
-                <p class="timer">TIME LEFT: <span id="time">30</span>s</p>
+    <div class="game-terminal">
+        <div class="terminal-output" id="terminal-output">
+            <div class="system-message typewriter">
+                SPACE TERMINAL v1.0 - INITIALIZING...
             </div>
-            
-            <div class="input-group">
-                <input type="text" id="player-input" placeholder="ENTER COMMAND...">
-                <button onclick="handleCommand()">EXECUTE</button>
+            <div class="system-message typewriter">
+                SYSTEM READY - AWAITING COMMANDS
             </div>
+            <p class="timer">TIME LEFT: <span id="time">30</span>s</p>
         </div>
+        
+        <div class="input-group">
+            <input type="text" id="player-input" placeholder="ENTER COMMAND...">
+            <button onclick="handleCommand()">EXECUTE</button>
+        </div>
+    </div>
 
-        <script src="../JavaScript/TT1.js"></script>
+    <script src="../JavaScript/TT1.js"></script>
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
 </body>
 </html>

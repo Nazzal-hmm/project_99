@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../JavaScript/gameTimer.js"></script>
+    <title>Caution 2</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
     <link rel="stylesheet" href="../CSS/Caution2.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
     <title>CAUTION!</title>
 </head>
 <body>
@@ -58,5 +64,15 @@
         </div>
     
     <script src="../JavaScript/Caution2.js"></script>
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
 </body>
 </html>

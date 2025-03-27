@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 3: Booster Ignition Code</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-   
+    <title>TT3</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
     <link rel="stylesheet" href="../CSS/TT3.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <!-- Add your other head elements here -->
 </head>
 <body>
    
@@ -50,5 +53,40 @@
         </div>
     </div>
     <script src="../JavaScript/TT3.js"></script>
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            const username = localStorage.getItem('username');
+            const currentTime = Date.now();
+            
+            if (confirm('Are you sure you want to exit the game?')) {
+                // Save exit time to localStorage
+                localStorage.setItem('exitTime', currentTime);
+                
+                // Update debug.html with exit time
+                fetch('../HTML/debug.html', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        exitTime: currentTime,
+                        action: 'exit'
+                    })
+                })
+                .then(() => {
+                    window.location.href = '../HTML/welcomePage.html';
+                })
+                .catch(error => {
+                    console.error('Error updating debug:', error);
+                    window.location.href = '../HTML/welcomePage.html';
+                });
+            }
+        }
+    </script>
+    <!-- Add your other script tags here -->
 </body>
 </html>

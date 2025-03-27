@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../JavaScript/gameTimer.js"></script>
-        <link rel="stylesheet" href="../CSS/Starting-N.css">
-        <title>Space</title>
-
-    </head>
-    <body>
-        <div class="container">
-            <div class="background"></div>
-            <div class="story-text">
-                <p>Panic rises in his chest as he stares out the window, his eyes locking onto a massive black hole, its pull seemingly inching closer.</p>
-                <p>Heart racing, he scrambles for answers, but only questions flood his mind: "How did I get here? Why is the ship so close to the event horizon? Where are the others?"</p>
-            </div>
-            <div class="transmission">
-                <h2>C.H.A.R.O.N. Transmission</h2>
-                <p>Critical systems require immediate attention:</p>
-                <p class="task">Thank god you've woken up, <br>there is a lot of things to do. <br>The ship is spinning uncontrollably. <br>FIX IT!!</p>
-            </div>
-            <button class="continue-btn" onclick="location.href='../HTML/DaddyFlashback.html'"> Continue </button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting 2</title>
+    <link rel="stylesheet" href="../CSS/exitButton.css">
+    <link rel="stylesheet" href="../CSS/Starting-N.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script>
+        // Initialize the game timer when the page loads
+        initializeGameTimer();
+    </script>
+    <!-- Add your other head elements here -->
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="story-text">
+            <p>Panic rises in his chest as he stares out the window, his eyes locking onto a massive black hole, its pull seemingly inching closer.</p>
+            <p>Heart racing, he scrambles for answers, but only questions flood his mind: "How did I get here? Why is the ship so close to the event horizon? Where are the others?"</p>
         </div>
+        <div class="transmission">
+            <h2>C.H.A.R.O.N. Transmission</h2>
+            <p>Critical systems require immediate attention:</p>
+            <p class="task">Thank god you've woken up, <br>there is a lot of things to do. <br>The ship is spinning uncontrollably. <br>FIX IT!!</p>
+        </div>
+        <button class="continue-btn" onclick="location.href='../HTML/DaddyFlashback.html'"> Continue </button>
+    </div>
 
-        <script src="scripts.js"></script>
-    </body>
+    <script src="scripts.js"></script>
+    <!-- Add the exit button before closing body tag -->
+    <button class="exit-button" onclick="exitGame()">Exit Game</button>
+
+    <script>
+        function exitGame() {
+            if (confirm('Are you sure you want to exit the game?')) {
+                window.location.href = '../HTML/welcomePage.html';
+            }
+        }
+    </script>
+</body>
 </html>

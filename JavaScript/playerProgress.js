@@ -1,7 +1,6 @@
 // Player Progress Management
 let playerPoints = 0;
 
-// Function to update points and navigate based on task
 function updatePoints(task, correctAnswer) {
     switch (task) {
         case 'Task2intro':
@@ -40,10 +39,25 @@ function updatePoints(task, correctAnswer) {
             console.log('Unknown task');
     }
     console.log(`Current Points: ${playerPoints}`);
+
+    // After updating points, send to database
+    updatePlayerDatabase(playerPoints);
 }
 
-// Example usage
-// updatePoints('Task2intro', true);
-// updatePoints('Task4', 'engine');
-// updatePoints('Nztask3', 'firstTry');
-// updatePoints('Caesar', 'light');
+function updatePlayerDatabase(points) {
+    const username = localStorage.getItem('username'); // Assuming you store username in localStorage
+    if (!username) return;
+
+    fetch('../PHP/player_data.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            points: points
+        })
+    })
+    .then(response => response.json())
+    .catch(error => console.error('Error:', error));
+}
