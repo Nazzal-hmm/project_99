@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TStart</title>
-    <link rel="stylesheet" href="../CSS/exitButton.css">
-    <link rel="stylesheet" href="../CSS/TStart.css">
+    <title>Critical Sequence Required</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="../CSS/Tstart.css">
     <script src="../JavaScript/gameTimer.js"></script>
-    <script>
-        // Initialize the game timer when the page loads
-        initializeGameTimer();
-    </script>
-    <!-- Add your other head elements here -->
+    
 </head>
 <body>
     <div class="blackhole-glow"></div>
@@ -25,16 +19,5 @@
         
         <button class="turbo-button" onclick="window.location.href='../HTML/TT1.html'">ACTIVATE TURBO SEQUENCE</button>
     </div>
-    <!-- Add the exit button before closing body tag -->
-    <button class="exit-button" onclick="exitGame()">Exit Game</button>
-
-    <script>
-        function exitGame() {
-            if (confirm('Are you sure you want to exit the game?')) {
-                window.location.href = '../HTML/welcomePage.html';
-            }
-        }
-    </script>
-    <!-- Add your other script tags here -->
 </body>
 </html>

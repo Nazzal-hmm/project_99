@@ -1,46 +1,46 @@
 <?php
-include 'db_connect.php';
-
+session_start();
+require_once 'db_connect.php';
 header('Content-Type: application/json');
-header("Access-Control-Allow-Origin: *");
 
-try {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $username = $_POST['username'] ?? '';
-        $password = $_POST['password'] ?? '';
-        
-        if (empty($username) || empty($password)) {
-            throw new Exception('Username and password are required');
-        }
-        
-        $stmt = $conn->prepare("SELECT password FROM players WHERE username = ?");
-        if (!$stmt) {
-            throw new Exception('Database preparation failed');
-        }
-        
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST["username"]);
+    $password = trim($_POST["password"]);
+    $response = array();
+
+    // Validate input
+    if (empty($username) || empty($password)) {
+        $response = array('success' => false, 'error' => 'Please enter both username and password.');
+    } else {
+        // Prepare SQL statement to prevent SQL injection
+        $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
-        
-        if ($result->num_rows > 0) {
+
+        if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
+            
+            // Verify password
             if (password_verify($password, $user['password'])) {
-                echo json_encode(['success' => true]);
+                // Password is correct
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $response = array('success' => true);
             } else {
-                echo json_encode(['success' => false, 'message' => 'Invalid password']);
+                // Password is incorrect
+                $response = array('success' => false, 'error' => 'Invalid username or password.');
             }
         } else {
-            echo json_encode(['success' => false, 'message' => 'User not found']);
+            // Username not found
+            $response = array('success' => false, 'error' => 'Invalid username or password.');
         }
-    } else {
-        throw new Exception('Invalid request method');
+        
+        $stmt->close();
     }
-} catch (Exception $e) {
-    error_log('Login Error: ' . $e->getMessage());
-    http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Login service unavailable. Please try again later.'
-    ]);
+    
+    echo json_encode($response);
 }
+
+$conn->close();
 ?>

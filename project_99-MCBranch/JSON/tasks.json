@@ -1,0 +1,188 @@
+{
+    
+    "flashback": {
+        "dialogue": [
+            "Do you have to go Daddy?",
+            "Yes Anne, it's a really important mission",
+            "I thought you said you were done with deep space missions!",
+            "Yes, but this has the potential to change everything",
+            ""
+        ],
+        "choices": ["Leave", "Exit"]
+    },
+    "tasks": [
+        {
+            "id": 1,
+            "name": "task2Intro",
+            "title": "Gyroscopic Calibration",
+            "description": "Solve equations for X, Y, Z axes calibration",
+            "points": 10,
+            "time_limit": 300,
+            "clues": {
+                "Pitch (θ)": "θ = 3 × (Y + 2) − X ÷ 2",
+                "Yaw (ψ)": "ψ = (X + Y) × 2 − Z ÷ 4",
+                "Roll (φ)": "φ = X ÷ (Y − Z) + 5"
+            },
+            "memory": [
+              "The room hums low with secrets untold,",
+                    "Stars on the screen burn distant and cold.",
+                    "\"A black hole, this close? It shouldn't exist.\"",
+                    "Yet numbers don't lie—reality twists.",
+                    "",
+                    "\"It's suicide,\" someone murmurs in doubt,",
+                    "The weight of the void pulling them out.",
+                    "But beneath their fear, a voice in me grins—",
+                    "\"Or perhaps... where the REAL STORY begins...\""
+            ]
+        },
+        
+            {
+                "id": 2,
+                "name": "task4",
+                "title": "Power Diversion Protocol",
+                "description": "Select 3 critical areas to recover",
+                "points": 10,
+                "time_limit": 180,
+                "correct_choices": [
+                    "Engine Thrusters",
+                    "Life Support",
+                    "Navigation System"
+                ],
+                "choices": [
+                    "Engine Thrusters",
+                    "Life Support",
+                    "Communication Systems",
+                    "Shielding Systems",
+                    "Medical Bay",
+                    "Navigation Systems"
+                ],
+                "memory": [
+                    "The room hums low with secrets untold,",
+                    "Stars on the screen burn distant and cold.",
+                    "\"A black hole, this close? It shouldn't exist.\"",
+                    "Yet numbers don't lie—reality twists.",
+                    "",
+                    "\"It's suicide,\" someone murmurs in doubt,",
+                    "The weight of the void pulling them out.",
+                    "But beneath their fear, a voice in me grins—",
+                    "\"Or perhaps... where the REAL STORY begins...\"",
+                    "",
+                    "Flickers of light, the hum of despair,",
+                    "Power wanes, the air too thin to bear,",
+                    "Systems fail, a warning bright,",
+                    "The darkened corners long for flight.",
+                    "",
+                    "A whisper calls from deep within,",
+                    "You know the answer, let it begin,",
+                    "A choice made here, beneath your skin—",
+                    "Do you save yourself or give in?"
+                ]
+            },
+        {
+            "id": 3,
+            "name": "Nztask3",
+            "title": "Control Lock Decryption",
+            "description": "Solve the LED grid pattern puzzle",
+            "points": 10,
+            "time_limit": 300,
+            "lock_mechanism": {
+                "type": "binary",
+                "pins": 5,
+                "attempts": 5
+            },
+            "memory": [
+                "Through tangled code, you twist and turn,",
+                "An audio log begins to burn.",
+                "A file locked, its secrets sealed,",
+                "Frustration rises—nothing revealed.",
+                "",
+                "Each line you crack, each door you pry,",
+                "Reveals the lies you can't deny.",
+                "The log flickers, a code in disguise,",
+                "The truth lies hidden behind these lies.",
+                "",
+                "\"You're unlocking the past you've fled,",
+                "But don't listen too close to what's been said.\""
+            ],
+            "flashback": {
+                "memory": [
+                    "Flickers of light, the hum of despair,",
+                    "Power wanes, the air too thin to bear,",
+                    "Systems fail, a warning bright,",
+                    "The darkened corners long for flight.",
+                    "",
+                    "A whisper calls from deep within,",
+                    "You know the answer, let it begin,",
+                    "A choice made here, beneath your skin—",
+                    "Do you save yourself or give in?"
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "name": "ceaser",
+            "title": "AI CORE DECRYPTION",
+            "description": "Decrypt the message using Caesar cipher",
+            "points": 10,
+            "time_limit": 240,
+            "memory": [
+                "In silence deep, the AI's cry,",
+                "A broken voice that splits the sky.",
+                "You reach its core, its soul to tear,",
+                "But what you find is dark despair."
+            ],
+            "flashback": {
+                "memory": [
+                    "The astronaut enters C.H.A.R.O.N.'s central core,",
+                    "Where damaged files and corruption pour.",
+                    "A cipher wheel catches the wandering eye,",
+                    "With coded text that makes them sigh.",
+                    "",
+                    "Perhaps this wheel holds secrets deep,",
+                    "Through ancient codes that systems keep.",
+                    "A chance to fix what's broken here,",
+                    "If only they can make it clear."
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "name": "TT1",
+            "title": "Fuel Pressure Stabilization",
+            "description": "Stabilize the fuel pressure to 125 PSI",
+            "points": 10,
+            "time_limit": 30,
+            "success_range": [120, 130],
+            "memory": [
+                "The pressure gauge fluctuates wildly",
+                "Target Pressure: 125 psi"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "TT2",
+            "title": "Thrust Vector Alignment",
+            "description": "Align thrust vector between 1.0° - 1.4°",
+            "points": 10,
+            "time_limit": 30,
+            "success_range": [1.0, 1.4],
+            "memory": [
+                "The ship’s trajectory is skewing",
+                "Acceptable range: 1.0 to 1.4 degrees"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "TT3",
+            "title": "Booster Ignition Code",
+            "description": "Enter 8-digit code from corrupted logs",
+            "points": 10,
+            "time_limit": 30,
+            "correct_code": "23024517",
+            "memory": [
+                "The corrupted logs hold the sequence",
+                "Follow the path of survival"
+            ]
+        }
+    ]
+}

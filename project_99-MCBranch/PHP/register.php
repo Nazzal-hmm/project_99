@@ -1,36 +1,78 @@
 <?php
-include 'db_connect.php';
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header('Content-Type: application/json');
-header("Access-Control-Allow-Origin: *");
+
+// Database connection
+$host = 'webhost1.eeecs.qub.ac.uk';
+$dbname = 'mbanerjee02';
+$username = 'mbanerjee02';
+$password = 'RZ2F39GsN2fSyCnk';
+
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    echo json_encode([
+        'success' => false,
+        'error' => 'Database connection failed: ' . $e->getMessage()
+    ]);
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    
-    // Check if username exists
-    $check = $conn->prepare("SELECT username FROM players WHERE username = ?");
-    $check->bind_param("s", $username);
-    $check->execute();
-    $check->store_result();
-    
-    if ($check->num_rows > 0) {
-        echo json_encode(['success' => false, 'message' => 'Username already exists']);
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if (empty($username) || empty($password)) {
+        echo json_encode([
+            'success' => false,
+            'error' => 'Username and password are required'
+        ]);
         exit;
     }
+
+    // Check if username exists
+    $stmt = $conn->prepare("SELECT username FROM users WHERE username = ?");
+    $stmt->execute([$username]);
     
-    // Insert new user
-    $stmt = $conn->prepare("INSERT INTO players (username, password) VALUES (?, ?)");
-    $stmt->bind_param("ss", $username, $password);
-    
-    if ($stmt->execute()) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Registration failed']);
+    if ($stmt->rowCount() > 0) {
+        echo json_encode([
+            'success' => false,
+            'error' => 'username already exists'
+        ]);
+        exit;
     }
-    
-    $stmt->close();
+
+    // Insert new user - using the exact table structure
+    try {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+        $stmt->execute([$username, $hashedPassword]);
+        
+        if ($stmt->rowCount() > 0) {
+            // Start session and store username
+            session_start();
+            $_SESSION['username'] = $username;
+            
+            echo json_encode([
+                'success' => true,
+                'message' => 'Registration successful',
+                'username' => $username  // Add username to response
+            ]);
+        } else {
+            throw new Exception('Failed to insert user');
+        }
+    } catch(PDOException $e) {
+        echo json_encode([
+            'success' => false,
+            'error' => 'Registration failed: ' . $e->getMessage()
+        ]);
+    }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    echo json_encode([
+        'success' => false,
+        'error' => 'Invalid request method'
+    ]);
 }
 ?>

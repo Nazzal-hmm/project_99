@@ -14,14 +14,13 @@
         <h1>FRACTURED HORIZON</h1>
     </div>
 
+    <div id="error-message" class="error-message" style="display: none;"></div>
+   
     <form class="container" id="loginForm">
         <h2>ENTER DETAILS</h2>
-        <input id="username" type="text" name="Username" placeholder="Username..." required>
-        <input id="password" type="password" name="Password" placeholder="Password..." required>
-        <p id="errorMessage" style="color: red; display: none;"></p>
-        <button type="submit" class="buttons">
-            Load Last Save
-        </button>
+        <input id="username" type="text" name="username" placeholder="Username..." required>
+        <input id="password" type="password" name="password" placeholder="Password..." required>
+        <button type="submit" class="buttons">Load Last Save</button>
     </form>
     
     <div class="flier">
@@ -29,45 +28,28 @@
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            const formData = new FormData(e.target);
             
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-    
-            fetch('../PHP/login.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-            })
-            .then(response => {
-                if (!response.ok) {
-                    // Handle HTTP errors
-                    return response.text().then(text => {
-                        throw new Error(`HTTP error! status: ${response.status}, response: ${text}`);
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data && data.success) {
-                    // Initialize timer session storage
-                    sessionStorage.setItem('gameTimeRemaining', 10 * 60);
-                    sessionStorage.setItem('currentPage', 'Corridor1.html');
-                    window.location.href = 'Corridor1.html';
+            try {
+                const response = await fetch('../PHP/login.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                const errorDiv = document.getElementById('error-message');
+                
+                if (data.success) {
+                    window.location.href = '../HTML/Corridor1.html';
                 } else {
-                    errorMessage.textContent = data?.message || 'Login failed';
-                    errorMessage.style.display = 'block';
+                    errorDiv.textContent = data.error;
+                    errorDiv.style.display = 'block';
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error:', error);
-                errorMessage.textContent = 'Login service unavailable. Please try again later.';
-                errorMessage.style.display = 'block';
-            });
+            }
         });
     </script>
 </body>
