@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/task3.css">
+    <script src="../JavaScript/utils.js"></script>
+    <title>Emergency Protocol</title>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="story-text">
+            <p>The ship shudders violently as warning lights flash across the control panel.</p>
+            <p>C.H.A.R.O.N.'s voice crackles through the speakers: "Astronaut, the TURBO BOOSTER ENGINES are our only hope to escape the black hole's pull."</p>
+            <p>"The system is locked - you'll need to access the maintenance terminal to begin the override sequence."</p>
+        </div>
+        
+        <div class="terminal" id="terminal">
+            <div class="terminal-output" id="terminalOutput">
+                > SYSTEM STATUS: CRITICAL<br>
+                > GRAVITATIONAL PULL: INCREASING<br>
+                > TURBO BOOSTERS: LOCKED<br><br>
+                > TYPE "GO TO MAINTENANCE ROOM" TO BEGIN OVERRIDE SEQUENCE
+            </div>
+            <div class="terminal-input">
+                > <input type="text" id="commandInput" autofocus >
+            </div>
+        </div>
+    </div>
+
+    <script src="../JavaScript/task3.js"></script>
+</body>
+</html>

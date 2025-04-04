@@ -1,0 +1,274 @@
+/* Accessibility Settings Button */
+#accessibilityBtn{
+    position: fixed;
+    top: 84%;
+    right: 0.5%;
+    height: 14%;
+    width: 25.5%;
+    padding: 20px 5%;
+    white-space: nowrap;
+    border-radius: 12px;
+    border-color: grey;
+    border-width: 5px;
+    font-family: "Pixelify Sans", serif;
+    font-weight: 700;
+    font-size: 30px;
+    overflow: visible;
+    color: greenyellow;
+    background-color: black;
+    z-index: 1;
+    --border-size: 2px;
+  }
+  
+  #accessibilityBtn::before {
+    content: '';
+    position: absolute;
+    border-radius: 12px;
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  
+  #accessibilityBtn:hover::before{
+    border:5px solid greenyellow;
+    top: calc(var(--border-size) * -5);
+    bottom: calc(var(--border-size) * -5);
+    left: calc(var(--border-size) * -5);
+    right: calc(var(--border-size) * -5);
+    transition: top, bottom, left, right 100ms ease-in-out;
+  } */
+  
+  #accessibilityBtn:active {
+    transform: translateY(4px);
+  } 
+  
+  
+  /* Accessibility Panel */
+  .accessibility-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .accessibility-panel.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .settings-container {
+    padding: 20px;
+    color: #333;
+  }
+  
+  .settings-container h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .setting-group {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .setting-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .setting-description {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .setting-description span {
+    margin-left: 10px;
+  }
+  
+  /* Toggle switch styles */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Button styles */
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .button-group button {
+    flex: 1 0 30%;
+    margin: 5px;
+    padding: 8px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .button-group button:hover {
+    background-color: #0b7dda;
+  }
+  
+  /* High Contrast Mode Styles */
+  body.high-contrast {
+    background-color: #000000 !important;
+    background-image: none !important; 
+    color: #ffff00 !important; 
+  }
+  
+  /* Style game elements for High Contrast */
+  body.high-contrast .displayBlock {
+     background-color: #000000 !important;
+     color: #ffff00 !important;
+     border: 2px solid #ffff00 !important;
+  }
+  body.high-contrast .displayBlock span {
+    color: #ffffff !important; 
+    background-color: transparent !important;
+  }
+  
+  
+  body.high-contrast #userIn.terminal { 
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffff00 !important;
+  }
+
+  body.high-contrast .gameImage {
+    border: 3px solid #ffff00 !important; 
+    filter: grayscale(100%) contrast(150%); 
+  }
+
+  body.high-contrast h1{
+      color: #ffff00 !important;
+  }
+
+
+  
+  
+  /* Accessibility Widget High Contrast Styles */
+  body.high-contrast #accessibilityBtn {
+    background-color: #ffff00 !important; color: #ffff00 !important; border: 1px solid #000000 !important;
+  }
+  body.high-contrast .accessibility-panel {
+    background-color: #000000 !important; border: 2px solid #ffff00 !important;
+  }
+  body.high-contrast .settings-container { color: #ffffff !important; }
+  body.high-contrast .settings-container h2,
+  body.high-contrast .setting-title,
+  body.high-contrast .setting-description span { color: #ffffff !important; }
+  body.high-contrast .button-group button {
+    background-color: #ffff00 !important; color: #000000 !important; border: 1px solid #ffffff !important;
+  }
+  body.high-contrast input:checked + .slider { background-color: #ffff00 !important; }
+  body.high-contrast .slider:before { background-color: #000000 !important; }
+  body.high-contrast .slider { background-color: #555 !important; border: 1px solid #ffff00; }
+  
+  body.high-contrast p{
+    color: #ffff00 !important;
+  }
+  
+  body.high-contrast h2{
+    color: #ffff00 !important;
+  }
+  
+  /*Large Text Mode Styles */
+  
+  body.large-text .displayBlock {
+     font-size: 224% !important; 
+     line-height: 1.2 !important; 
+  }
+  body.large-text .inventoryBlock h2,
+  body.large-text .cluesBlock h2 {
+    font-size: 224% !important; 
+  }
+  
+  body.large-text #userIn.terminal {
+    font-size: 300% !important; 
+  }
+
+
+  
+  /* Accessibility panel in Large Text */
+  body.large-text .settings-container { font-size: 110%; }
+  body.large-text .settings-container h2 {
+    font-size: 1.8rem !important; 
+  }
+  body.large-text .setting-title {
+    font-size: 1.3rem !important;
+  }
+  body.large-text .setting-description span {
+    font-size: 1.1rem !important;
+  }
+  body.large-text .button-group button {
+    font-size: 1rem !important;
+  }
+  
+  

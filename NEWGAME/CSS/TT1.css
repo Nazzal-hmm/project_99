@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: black;
+  color: greenyellow;
+  font-family: "Pixelify Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.scene-view {
+  position: relative;
+  margin: 0.5%;
+  background-color: grey;
+  padding: 5px;
+  width: 74.5%;
+  height: 75%;
+}
+
+.scene-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.narration-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+  color: greenyellow;
+}
+
+.right-panel {
+  position: absolute;
+  right: 0.5%;
+  top: 0.5%;
+  width: 24%;
+  height: 75%;
+  background-color: darkgrey;
+  padding: 5px;
+}
+
+.clues {
+  background-color: grey;
+  height: 100%;
+  padding: 10px;
+  color: black;
+}
+
+.game-terminal {
+  position: absolute;
+  bottom: 1%;
+  left: 0.5%;
+  width: 74.5%;
+  height: 20%;
+  background-color: grey;
+  padding: 5px;
+}
+
+.terminal-output {
+  height: 70%;
+  background-color: black;
+  color: greenyellow;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  overflow-y: auto;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#player-input {
+  flex-grow: 1;
+  background: black;
+  color: greenyellow;
+  border: 2px solid greenyellow;
+  padding: 5px;
+  font-family: 'Courier New', monospace;
+}
+
+button {
+  background: black;
+  color: greenyellow;
+  border: 2px solid greenyellow;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+button:hover {
+  background: greenyellow;
+  color: black;
+}
+
+/* Special text styles */
+.narration {
+  color: #00ff00;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.task-instruction {
+  color: #ffff00;
+  border-left: 3px solid #ffff00;
+  padding-left: 10px;
+  margin: 15px 0;
+}
+
+.terminal{
+  width: 100%;
+  background-color: black;
+  color:greenyellow;
+  font-family: "Pixelify Sans", serif;
+  font-size: 20px;
+  
+}
+.error-message {
+  color: #ff5555 !important;
+  animation: blink 0.5s ease 2;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+button:hover {
+  background: #99ff99;
+  color: #000;
+}
+
+
+
+
+
+

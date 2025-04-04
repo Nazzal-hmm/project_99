@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/main.js"></script>
+    <link rel="stylesheet" href="../CSS/memory3.css">
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <script src="../JavaScript/accessibility.js"></script>
+    <script src="../JavaScript/utils.js"></script>
+    <title>Memory Unlocked!</title>
+</head>
+<body>
+  <div class="container">
+      <div class="door1" id="leftDoor">
+          <!-- Door content -->
+      </div>
+  
+      <div class="door2" id="rightDoor">
+          <!-- Door content -->
+      </div>
+      
+      <div class="main-box">
+          <div class="scene">
+              <p id="poem-line1" class="line1">
+                Through tangled code, you twist and turn,
+              </p>
+              <p id="poem-line2" class="line2">
+                An audio log begins to burn.
+              </p>
+              <p id="poem-line3" class="line3">
+                A file locked, its secrets sealed,
+              </p>
+              <p id="poem-line4" class="line4">
+                Frustration rises—nothing revealed.
+              </p>
+              <br>
+              <p id="poem-line5" class="line5">
+                Each line you crack, each door you pry,
+              </p>
+              <p id="poem-line6" class="line6">
+                Reveals the lies you can't deny.
+              </p>
+              <p id="poem-line7" class="line7">
+                <strong>The log flickers, a code in disguise,</strong>  
+              </p>
+              <p id="poem-line8" class="line8">
+                <strong>The truth lies hidden behind these lies.</strong>
+              </p>
+              <br>
+              <p id="poem-line13" class="line13">
+                <strong>"You're unlocking the past you've fled,</strong>
+              </p>
+              <p id="poem-line14" class="line14">
+                <strong>But don't listen too close to what's been said."</strong>
+              </p>
+          </div>
+          <button onclick="location.href='../HTML/ceaserEntry.html'" class="continue-button">Continue</button>
+      </div>
+  </div>
+  
+  <div class="rightBlock">
+      <div class="inventoryBlock">
+          <h2>Inventory</h2>
+      </div>
+      <div class="cluesBlock">
+          <h2>Clues</h2>
+          <div>
+            <p class = 'woah'>
+              WOAH! <br>you just found a corrupted Audio Log!
+            </p>
+          </div>
+      </div>
+  </div>
+
+  <button id="accessibilityBtn" class="settingsButton">Accessibility</button>
+     
+  <!-- Accessibility Settings Panel -->
+  <div id="accessibilityPanel" class="accessibility-panel">
+      <div class="settings-container">
+          <h2>Accessibility Settings</h2>
+  
+          <div class="setting-group">
+              <div class="setting-title">Visual Settings</div>
+  
+              <div class="setting-description">
+                  <label class="toggle-switch">
+                      <input type="checkbox" id="highContrastToggle">
+                      <span class="slider"></span>
+                  </label>
+                  <span>High Contrast Mode</span>
+              </div>
+  
+              <div class="setting-description">
+                  <label class="toggle-switch">
+                      <input type="checkbox" id="largeTextToggle">
+                      <span class="slider"></span>
+                  </label>
+                  <span>Large Text Mode</span>
+              </div>
+          </div>
+  
+          <div class="button-group">
+              <button id="saveSettings">Save Settings</button>
+              <button id="resetSettings">Reset to Default</button>
+              <button id="closeSettings">Close</button>
+          </div>
+      </div>
+  </div>
+  
+</body>
+</html>

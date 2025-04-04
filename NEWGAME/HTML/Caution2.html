@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/accessibility.js"></script>
+    <script src="../JavaScript/main.js"></script>
+    <link rel="stylesheet" href="../CSS/Caution2.css">
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <script src="../JavaScript/utils.js"></script>
+    <script src="../JavaScript/gameTimer.js"></script>
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <script src="../JavaScript/accessibility.js"></script>
+    
+    <title>CAUTION!</title>
+</head>
+<body>
+
+    <div class="container">
+      
+        <div class="door1" id="leftDoor">
+            <!-- Door content -->
+        </div>
+    
+        <div class="door2" id="rightDoor">
+            <!-- Door content -->
+        </div>
+        
+        <div class="main-box">
+            <div class="scene">
+                <h1 class="caution">
+                    <strong>CAUTION! <br><br> STABILITY<br>COMPROMISED!</strong>
+                  </h1>
+            </div>
+        </div>
+        <div class="continue">
+            <p>What Happened?</p>
+        </div>
+        
+    </div>
+    
+        <div class="rightBlock">
+    
+            <div class="inventoryBlock">
+                <h2>Inventory</h2>
+                 
+            </div>
+            <div class="cluesBlock">
+                 <h2>Clues</h2>
+            </div>
+           
+        </div>
+    
+        <button id="accessibilityBtn" class="settingsButton">Accessibility</button>
+     
+        <div id="accessibilityPanel" class="accessibility-panel">
+            <div class="settings-container">
+                <h2>Accessibility Settings</h2>
+    
+                <div class="setting-group">
+                    <div class="setting-title">Visual Settings</div>
+    
+                    <div class="setting-description">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="highContrastToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span>High Contrast Mode</span>
+                    </div>
+    
+                    <div class="setting-description">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="largeTextToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Large Text Mode</span>
+                    </div>
+                </div>
+   
+                <div class="button-group">
+                    <button id="saveSettings">Save Settings</button>
+                    <button id="resetSettings">Reset to Default</button>
+                    <button id="closeSettings">Close</button>
+                </div>
+            </div>
+        </div>
+   
+      
+    
+        <div class="bottomBlock">
+        <input class="terminal" type="text" placeholder=">>>Input Here..." 
+        class="terminal" >
+        <p id = "message"></p>
+        </div>
+    
+    <script src="../JavaScript/Caution2.js"></script>
+</body>
+</html>

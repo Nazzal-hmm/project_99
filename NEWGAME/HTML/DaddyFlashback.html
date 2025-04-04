@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/DaddyFlashback.css">
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/accessibility.js"></script>
+    <script src="../JavaScript/main.js"></script>
+    <script src="../JavaScript/utils.js"></script>
+    <title>Dialogue Scene</title>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="main-box">
+            <div class="scene">
+                <div class="girl">
+                    <p>"Do you really have to go, Dad?"</p>
+                </div>
+                <div class="main-guy">
+                    <p>"It's only for a few months, <span class="floating">Anne</span>. I'll be back before you know it."</p>
+                </div>
+                <div class="women">
+                    <p>"You said you were done with deep space missions!"</p>
+                </div>
+                <div class="voice">
+                    <p><i>A distorted voice whispers: They'll be fine without you.</i></p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+        <div class="rightBlock">
+    
+            <div class="inventoryBlock">
+                <h2>Inventory</h2>
+                 
+            </div>
+        
+            <div class="cluesBlock">
+                 <h2>Clues</h2>
+            </div>
+           
+        </div>
+        <button id="accessibilityBtn" class="settingsButton">Accessibility</button>
+     
+        <div id="accessibilityPanel" class="accessibility-panel">
+            <div class="settings-container">
+                <h2>Accessibility Settings</h2>
+    
+                <div class="setting-group">
+                    <div class="setting-title">Visual Settings</div>
+    
+                    <div class="setting-description">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="highContrastToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span>High Contrast Mode</span>
+                    </div>
+    
+                    <div class="setting-description">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="largeTextToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Large Text Mode</span>
+                    </div>
+                </div>
+   
+                <div class="button-group">
+                    <button id="saveSettings">Save Settings</button>
+                    <button id="resetSettings">Reset to Default</button>
+                    <button id="closeSettings">Close</button>
+                </div>
+            </div>
+        </div>
+   
+      
+    
+        <div class="bottomBlock">
+          <button class="Continue" onclick="location.href='../HTML/Caution2.html'">Continue</button>
+        </div>
+    
+
+</body>
+</html>

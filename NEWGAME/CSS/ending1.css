@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: flicker 5s infinite;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/spacecraft.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+#ending-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    animation: fadeIn 3s forwards;
+}
+
+#poem {
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px #fff;
+    animation: textGlitch 5s infinite;
+}
+
+#title {
+    font-size: 37px;
+    margin-bottom: 2rem;
+    color: #ff5555;
+    text-shadow: 0 0 10px #ff0000;
+    animation: colorShift 10s infinite;
+}
+
+#subtitle {
+    font-style: italic;
+    margin-bottom: 3rem;
+    color: #aaa;
+    font-size: 21px;
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch::before {
+    color: #0ff;
+    z-index: -1;
+    animation: glitch-effect 3s infinite;
+}
+
+.glitch::after {
+    color: #f0f;
+    z-index: -2;
+    animation: glitch-effect 2s infinite reverse;
+}
+
+@keyframes glitch-effect {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.distortion {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 20%, black 70%);
+    pointer-events: none;
+    z-index: -5;
+    animation: distortIn 5s forwards;
+}
+
+#whisper {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 21px;
+    color: #ff5555;
+    animation: whisperIn 8s forwards;
+}
+
+#go-back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #ff5555;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 21px;
+    opacity: 0;
+    animation: fadeInButton 12s forwards;
+    z-index: 100;
+}
+
+#go-back-button:hover {
+    background-color: #ff3333;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes blackHoleGrow {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.7; transform: scale(1.5); }
+}
+
+@keyframes distortIn {
+    0% { opacity: 0; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes whisperIn {
+    0%, 70% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInButton {
+    0%, 90% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes flicker {
+    0%, 15%, 30%, 45%, 60%, 75%, 90% { opacity: 0.8; }
+    5%, 20%, 35%, 50%, 65%, 80%, 95% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+@keyframes colorShift {
+    0% { color: #ff5555; }
+    33% { color: #55ff55; }
+    66% { color: #5555ff; }
+    100% { color: #ff5555; }
+}
+
+@keyframes textGlitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+}
