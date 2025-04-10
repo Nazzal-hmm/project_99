@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: black;
+  color: greenyellow;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+.scene-view {
+  position: relative;
+  margin: 0.5%;
+  background-color: grey;
+  padding: 5px;
+  width: 74.5%;
+  height: 75%;
+}
+
+.scene-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.narration-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+}
+
+.right-panel {
+  position: absolute;
+  right: 0.5%;
+  top: 0.5%;
+  width: 24%;
+  height: 75%;
+  background-color: darkgrey;
+  padding: 5px;
+}
+
+.corrupted-logs {
+  background-color: grey;
+  height: 100%;
+  padding: 10px;
+  color: darkblue;
+}
+
+.log-entry {
+  margin: 10px 0;
+  font-family: 'Courier New', monospace;
+}
+
+.code-input {
+  width: 100%;
+  background: black;
+  color: greenyellow;
+  border: 2px solid greenyellow;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+}
+
+.validateCode {
+  background: black;
+  color: greenyellow;
+  border: 2px solid greenyellow;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Pixelify Sans", sans-serif;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.validateCode:hover {
+  background: greenyellow;
+  color: black;
+}
+
+.timer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: red;
+  font-size: 1.5em;
+}
+
+.incorrect {
+  animation: glowRed 1s ease-in-out;
+  border-color: red;
+}
+
+@keyframes glowRed {
+  0% { box-shadow: 0 0 5px red; }
+  50% { box-shadow: 0 0 20px red; }
+  100% { box-shadow: 0 0 5px red; }
+}

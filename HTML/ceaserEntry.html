@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/main.js"></script>
+    <link rel="stylesheet" href="../CSS/ceaserEntry.css">
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <script src="../JavaScript/accessibility.js"></script>
+    <script src="../JavaScript/utils.js"></script>
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <script src="../JavaScript/accessibility.js"></script>
+    <title>System Failure</title>
+</head>
+<body>
+ 
+<div class="container">
+   
+
+    <div class="displayBlock">
+        
+    </div>
+
+    <div class="door1" id="leftDoor">
+        <!-- Door content -->
+    </div>
+
+    <div class="door2" id="rightDoor">
+        <!-- Door content -->
+    </div>
+    
+    <div class="main-box">
+        <p>The astronaut comes into the center of C.H.A.R.O.N.’s</p>
+        <p>database and operations to try to fix its damaged parts and corrupted files.</p>
+        <p>The astronaut sees a wheel that looks like a cipher and a ciphered text under it,</p>
+        <p>maybe he has to decipher the text using the wheel,</p>
+        <p>is it worth a try?</p>
+    </div>
+</div>
+
+    <div class="rightBlock">
+
+        <div class="inventoryBlock">
+            <h2>Inventory</h2>
+            
+            
+            
+        </div>
+    
+        <div class="cluesBlock">
+             <h2>Clues</h2>
+        </div>
+       
+    </div>
+
+    <button id="accessibilityBtn" class="settingsButton">Accessibility</button>
+     
+  <!-- Accessibility Settings Panel -->
+  <div id="accessibilityPanel" class="accessibility-panel">
+      <div class="settings-container">
+          <h2>Accessibility Settings</h2>
+  
+          <div class="setting-group">
+              <div class="setting-title">Visual Settings</div>
+  
+              <div class="setting-description">
+                  <label class="toggle-switch">
+                      <input type="checkbox" id="highContrastToggle">
+                      <span class="slider"></span>
+                  </label>
+                  <span>High Contrast Mode</span>
+              </div>
+  
+              <div class="setting-description">
+                  <label class="toggle-switch">
+                      <input type="checkbox" id="largeTextToggle">
+                      <span class="slider"></span>
+                  </label>
+                  <span>Large Text Mode</span>
+              </div>
+          </div>
+  
+          <div class="button-group">
+              <button id="saveSettings">Save Settings</button>
+              <button id="resetSettings">Reset to Default</button>
+              <button id="closeSettings">Close</button>
+          </div>
+      </div>
+  </div>
+  
+
+    <div class="bottomBlock">
+    
+        <input class="terminal" type="text" placeholder="Type 'Fix Cipher' to begin" > 
+    </div>
+
+    <script>
+        document.querySelector('.terminal').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const input = e.target.value.trim();
+                if (input.toLowerCase().trim() === 'fix cipher') {
+                    window.location.href = 'ceaser.html';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

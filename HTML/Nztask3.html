@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/main.js"></script>
+    <link rel="stylesheet" href="../CSS/Nztask3.css">
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <script src="../JavaScript/accessibility.js"></script>
+    <script src="../JavaScript/points.js"></script>
+    <script src="../JavaScript/Nztask3.js"></script>
+    <script src="../JavaScript/utils.js"></script>
+</head>
+
+<body>
+<audio src="../AUDIO/doorSound.mp3" id="doorSound" preload="auto"></audio>
+
+
+
+<div class="container">
+    <img class="gameImage" src="../images/backgroundPicture.jpg" alt="image">
+    <div id="wrapper">
+        <div class="0_0 light off"></div>
+        <div class="0_1 light off"></div>
+        <div class="0_2 light off"></div>
+        ...
+      </div>
+
+    <div class="boxes-container">
+        
+        <div class="containers4">
+            <div class="led-grid-wrapper led-grid"></div>
+            <div class="neon-sign">IDLE</div>
+            <div class="arrow">
+                <div class="arrow-up-container" onclick=colorChange()>
+                    <div class="arrow-up"></div>
+                </div>
+                <div class="arrow-down-container">
+                    <div class="arrow-down"></div>
+                </div>
+            </div>
+            </div>
+            <div class="containers4">
+                <div class="led-grid-wrapper led-grid"></div>
+                <div class="neon-sign">IDLE</div>
+                <div class="arrow">
+                    <div class="arrow-up-container">
+                        <div class="arrow-up"></div>
+                    </div>
+                    <div class="arrow-down-container">
+                        <div class="arrow-down"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="containers4">
+                <div  class="led-grid-wrapper led-grid"></div>
+                <div class="arrow">
+                    
+                        <div class="arrow-up-container">
+                            <div class="arrow-up"></div>
+                        </div>
+                        <div class="arrow-down-container">
+                            <div class="arrow-down"></div>
+                        </div>
+                   
+                </div>
+            </div>
+        
+        <div class="containers4">
+            <div  class="led-grid-wrapper led-grid"></div>
+            <div class="neon-sign">IDLE</div>
+            <div class="arrow">
+                <div class="arrow-up-container">
+                    <div class="arrow-up"></div>
+                </div>
+                <div class="arrow-down-container">
+                    <div class="arrow-down"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="containers4">
+            <div class="led-grid-wrapper led-grid"></div>
+            <div class="neon-sign">IDLE</div>
+            <div class="arrow">
+                <div class="arrow-up-container">
+                    <div class="arrow-up"></div>
+                </div>
+                <div class="arrow-down-container">
+                    <div class="arrow-down"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="displayBlock" class="displayBlock">
+        <p>Type "lock in" to confirm your answer!</p>
+    </div>
+</div>
+
+    
+
+    <div class="door1" id="leftDoor">
+        <!-- Door content -->
+    </div>
+
+    <div class="door2" id="rightDoor">
+        <!-- Door content -->
+    </div>
+</div>
+
+<div class="rightBlock">
+    <div class="inventoryBlock">
+        <h2>Inventory</h2>
+    </div>
+    
+    <div class="cluesBlock">
+        <h2>Clues</h2>
+    </div>
+</div>
+
+
+<div class="bottomBlock">
+    <input id="userIn" class="terminal" autofocus autocomplete="off">
+</div>
+
+
+<button id="accessibilityBtn" class="settingsButton">Accessibility</button>
+     
+<!-- Accessibility Settings Panel -->
+<div id="accessibilityPanel" class="accessibility-panel">
+    <div class="settings-container">
+        <h2>Accessibility Settings</h2>
+
+        <div class="setting-group">
+            <div class="setting-title">Visual Settings</div>
+
+            <div class="setting-description">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="highContrastToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>High Contrast Mode</span>
+            </div>
+
+            <div class="setting-description">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="largeTextToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Large Text Mode</span>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button id="saveSettings">Save Settings</button>
+            <button id="resetSettings">Reset to Default</button>
+            <button id="closeSettings">Close</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

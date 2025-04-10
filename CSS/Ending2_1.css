@@ -1,0 +1,54 @@
+body {
+  background-image: URL(../images/ending2_1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: black; /* Optional for a more dramatic look */
+  color: white; /* Ensuring text is visible */
+  text-align: center;
+}
+
+/* Center text inside containers */
+.Ending-Heading, .Ending-content, .main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Optional Styling */
+.Heading-Header {
+  font-size: 8vh;
+  color: greenyellow;
+}
+
+.Ending-content {
+  font-size: clamp(5px, 2.5vh, 25px);
+}
+
+.main-box p {
+  font-size: 4vh;
+}
+
+.line6{
+  font-size: 4vh;
+}
+
+.button{
+  width: 10vw;
+  height: 5vh;
+  border-radius: 10px;
+  background-color: red;
+  font-size: 3vh;
+}
+
+#him{
+  color:grey;
+}

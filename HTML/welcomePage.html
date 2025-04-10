@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../CSS/welcomePageStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <title>Dark Horizon</title>
+</head>
+<body>
+
+    <div class="title">
+        <h1>FRACTURED HORIZON</h1>
+    </div>
+
+    <!-- Menu Buttons -->
+    <div class="container">
+        <div class="btnWrapper">
+            <a href="newGame.html">
+                <button class="buttons">New Game</button>
+            </a>
+        </div>
+
+        <div class="btnWrapper">
+            <a href="loadGame.html">
+                <button class="buttons">Load Game</button>
+            </a>
+        </div>
+
+        <div class="btnWrapper">
+            <button class="buttons" onclick="openLeaderboard()">Leaderboard</button>
+        </div>    
+    </div>
+
+    <div class="flier">
+        <button>Play game</button>
+    </div>
+
+
+    <div id="leaderboardContainer" style="display: none;"> <!-- Initially hidden -->
+        <button class="close-button" onclick="closeLeaderboard()">×</button>
+        <h2>Leaderboard</h2>
+        <div id="leaderboardContent"></div>
+    </div>
+
+    <script src="../JavaScript/utils.js"></script>
+    <script src="../JavaScript/leaderboard.js"></script>
+</body>
+</html>

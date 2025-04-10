@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5: Part 2 Thrust Vector Alignment </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <script src="../JavaScript/utils.js"></script>
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/points.js"></script>
+    <link rel="stylesheet" href="../CSS/TT2.css">
+   
+
+</head>
+<body>
+    <div class="main-container">
+        <div class="scene-view">
+            <div class="narration-overlay">
+                <p class="task-narration">
+                    The thrust vector is misaligned, and the ship’s trajectory is starting to skew. Move fast.<br>
+                    Adjust it to an acceptable range between 0.1 to 2.0 degrees
+                </p>
+            </div>
+            <img src="../images/part3.jpg" alt="Spaceship interior">
+        </div>
+
+        <div class="game-container">
+            <div class="alignment-interface">
+                <h1>THRUST VECTOR ALIGNMENT</h1>
+                <div class="vector-display" id="current-alignment">1.2°</div>
+                
+                <div class="slider-container">
+                    <input type="range" 
+                           min="0" 
+                           max="2" 
+                           step="0.1" 
+                           value="0.1" 
+                           class="slider" 
+                           id="thrust-slider">
+                </div>
+
+                <div class="target-range">
+                    TARGET RANGE: 1.0° - 1.4°
+                </div>
+
+                <button class="submit-button" onclick="submitAlignment()">
+                    LOCK IN ALIGNMENT
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="../JavaScript/TT2.js"></script>
+</body>
+</html>

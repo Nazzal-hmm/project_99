@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <script src="../JavaScript/points.js"></script>
+    <link rel="stylesheet" href="../CSS/intro.css">
+    <title>Task2</title>
+    <script src="../JavaScript/task2Intro.js"></script>
+    <script src="../JavaScript/accessibility.js"></script>
+    <script src="../JavaScript/utils.js"></script>
+    <script src="../JavaScript/gameTimer.js"></script>
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+</head>
+<body>
+
+    <div class="door1" id="leftDoor">
+        <!-- Door content -->
+    </div>  
+    
+    <div class="door2" id="rightDoor">
+        <!-- Door content -->
+    </div>
+
+    <div class="container">
+          <div class = Typewriter>
+            <h2 id = "Heading" >Task 2 : Gyroscopic Calibration</h2>
+            <div class = content>
+                <p class="text" id ="pstate" style="font-size: 3.5vh;"> The Spacecraft is spinning in irregular intervals thus destroying the stability it. But you seem to have forgotten the calibration codes. You look around the spacecraft in a frantic search to find the codes. <br> You then see the current position of the spacecraft in terms of X-axis, Y-axis, Z-axis in the console as <strong id = "e">(4,5,9) </strong> if the blackhole is treated as the origin (0,0,0) and 3 sets of equations beside the console. 
+                <br><br>
+                Maybe solving them will give you the codes for X, Y, Z axes?
+                </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="rightBlock">
+    
+            <div class="inventoryBlock">
+                <h2>Inventory</h2>
+                 
+            </div>
+            <div class="cluesBlock">
+                 <h2 id = "clues">Clues</h2>
+                 <div>
+                    <p class = "Equations">
+                        <br><br><br>
+                        1. Pitch (θ)
+                        Equation:
+                        θ= 3×(Y+2)−X÷2 <br><br>
+        
+                        2. Yaw (ψ)
+                        Equation:
+                        ψ=(X+Y)×2−Z+4 <br><br>
+        
+                        3. Roll (φ)
+                        Equation:
+                        φ=X + (Y x Z)+5
+                        <br>
+                        <br>
+                        <strong id="s">Please note that you need to know the precedence order to correctly solve the equations</strong>
+                        </p>
+                    </div>
+            </div>
+           
+        </div>
+    
+        <button id="accessibilityBtn" class="settingsButton">Accessibility</button>
+
+    <div id="accessibilityPanel" class="accessibility-panel">
+        <div class="settings-container">
+            <h2>Accessibility Settings</h2>
+
+            <div class="setting-group">
+                <div class="setting-title">Visual Settings</div>
+
+                <div class="setting-description">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="highContrastToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>High Contrast Mode</span>
+                </div>
+
+                <div class="setting-description">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="largeTextToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Large Text Mode</span>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="saveSettings">Save Settings</button>
+                <button id="resetSettings">Reset to Default</button>
+                <button id="closeSettings">Close</button>
+            </div>
+        </div>
+    </div>
+      
+    
+        <div class="bottomBlock">
+        <input id="userIn" class="terminal" type="text" placeholder=">>Input Here in the form of X,Y,Z ..." class="terminal">
+        <p id="message"></p>
+    </div>
+    
+    <script src="../JavaScript/points.js"></script>
+</body>
+</html>

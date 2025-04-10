@@ -1,0 +1,68 @@
+#leaderboardContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #f9c857;
+    z-index: 1000;
+    min-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#leaderboardContent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #f9c857;
+}
+
+#leaderboardContent th, 
+#leaderboardContent td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #f9c857;
+}
+
+#leaderboardContent th {
+    background: rgba(249, 200, 87, 0.1);
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}
+
+.first-place {
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.second-place {
+    background: rgba(192, 192, 192, 0.1);
+}
+
+.third-place {
+    background: rgba(205, 127, 50, 0.1);
+}
+
+#leaderboardContent tr:hover {
+    background: rgba(249, 200, 87, 0.1);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #f9c857;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.close-button:hover {
+    color: #ffffff;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <script src="../JavaScript/utils.js"></script>
+    <script src="../JavaScript/loadGame.js"></script>
+    <script src="../JavaScript/utils.js"></script>
+    <title>Load Game</title>
+    <link rel="stylesheet" href="../CSS/welcomePageStyles.css">
+</head>
+<body>
+    <div class="title">
+        <h1>FRACTURED HORIZON</h1>
+    </div>
+
+    <div id="error-message" class="error-message" style="display: none;"></div>
+   
+    <form class="container" id="loginForm">
+        <h2>ENTER DETAILS</h2>
+        <input id="username" type="text" name="username" placeholder="Username..." required>
+        <input id="password" type="password" name="password" placeholder="Password..." required>
+        <button type="submit" class="buttons">Load Last Save</button>
+    </form>
+    
+    <div class="flier">
+        <button>Press F11</button>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error-message');
+            
+            // Create database config
+            const dbConfig = new FormData();
+            dbConfig.append('hostname', DatabaseConnectionData.hostname);
+            dbConfig.append('username', DatabaseConnectionData.username);
+            dbConfig.append('password', DatabaseConnectionData.password);
+            dbConfig.append('database', DatabaseConnectionData.database);
+            
+            try {
+                // Check credentials against Users table
+                let query = `SELECT u_id, username FROM Users 
+                            WHERE username = '${username}' 
+                            AND passwd = '${password}'`;
+                
+                dbConfig.append('query', query);
+                
+                let response = await fetch(dbConnectorUrl, {
+                    method: "POST",
+                    body: dbConfig
+                });
+                
+                let result = await response.json();
+                
+                if (result.success && result.data.length > 0) {
+                    // Store user data in session storage
+                    let userData = result.data[0];
+                    sessionStorage.setItem('userId', userData.u_id);
+                    sessionStorage.setItem('username', userData.username);
+                    
+                    // Redirect to Starting1.html
+                    window.location.href = '../HTML/Starting1.html';
+                } else {
+                    errorDiv.textContent = 'Invalid username or password';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorDiv.textContent = 'An error occurred during login. Please try again.';
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

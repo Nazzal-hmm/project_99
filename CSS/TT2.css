@@ -1,0 +1,85 @@
+/* part2.css */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+    color: greenyellow;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+.scene-view {
+    position: relative;
+    margin: 0.5%;
+    background-color: grey;
+    padding: 5px;
+    width: 74.5%;
+    height: 75%;
+}
+
+.scene-view img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.narration-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+}
+
+.game-container {
+    position: absolute;
+    right: 0.5%;
+    top: 0.5%;
+    width: 24%;
+    height: 75%;
+    background-color: darkgrey;
+    padding: 5px;
+}
+
+.alignment-interface {
+    background-color: grey;
+    height: 100%;
+    padding: 10px;
+}
+
+.slider {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.submit-button {
+    background: black;
+    color: greenyellow;
+    border: 2px solid greenyellow;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.submit-button:hover {
+    background: greenyellow;
+    color: black;
+}
+
+.timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    font-size: 1.5em;
+}
+

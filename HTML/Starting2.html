@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <script src="../JavaScript/gameTimer.js"></script>
+    <script src="../JavaScript/main.js"></script>
+    <link rel="stylesheet" href="../CSS/Corridor.css">
+    <link rel="stylesheet" href="../CSS/accesibility.css">
+    <link rel="stylesheet" href="../CSS/Starting-N.css">
+    <script src="../JavaScript/accessibility.js"></script>
+    <script src="../JavaScript/utils.js"></script>
+    <title>Space</title>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="story-text">
+            <p>Panic rises in his chest as he stares out the window, his eyes locking onto a massive black hole, its pull seemingly inching closer.</p>
+            <p>Heart racing, he scrambles for answers, but only questions flood his mind: "How did I get here? Why is the ship so close to the event horizon? Where are the others?"</p>
+        </div>
+        <div class="transmission">
+            <h2>C.H.A.R.O.N. Transmission</h2>
+            <p>Critical systems require immediate attention:</p>
+            <p class="task">Thank god you've woken up, <br>there is a lot of things to do. <br>The ship is spinning uncontrollably. <br>FIX IT!!</p>
+        </div>
+        <button class="continue-btn" onclick="location.href='../HTML/DaddyFlashback.html'"> Continue </button>
+    </div>
+    
+    <button id="accessibilityBtn1" aria-label="Accessibility Settings" aria-expanded="false"></button>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: linear-gradient(to bottom, #000000, #1a1a2e);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            max-width: 1200px;
+            padding: 60px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: none;
+        }
+
+        .spacecraft {
+            font-size: 5.5vh;
+            font-weight: bold;
+            text-align: center;
+            color: #ff0000;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2s forwards, shake 0.5s infinite;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 50, 0.9), rgba(0, 0, 0, 0) 70%),
+                url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            opacity: 0.3;
+            z-index: 1;
+            animation: pulse-red 4s infinite alternate;
+        }
+
+        @keyframes pulse-red {
+            0% {
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            100% {
+                background-color: rgba(255, 0, 0, 0.3);
+            }
+        }
+
+        .story-text {
+            max-width: 800px;
+            padding: 25px;
+            margin-top: 5vh;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 2.2vh;
+            opacity: 1;
+        }
+
+        .story-text p {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        #text-2 {
+            text-align: center;
+            font-size: 4vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .story-text p:nth-child(1) {
+            animation-delay: 1s;
+        }
+
+        .story-text p:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+
+    
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: linear-gradient(to bottom, #000000, #1a1a2e);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            max-width: 1200px;
+            padding: 60px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: none;
+        }
+
+        .spacecraft {
+            font-size: 5.5vh;
+            font-weight: bold;
+            text-align: center;
+            color: #ff0000;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2s forwards, shake 0.5s infinite;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 50, 0.9), rgba(0, 0, 0, 0) 70%),
+                url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            opacity: 0.3;
+            z-index: 1;
+            animation: pulse-red 4s infinite alternate;
+        }
+
+        @keyframes pulse-red {
+            0% {
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            100% {
+                background-color: rgba(255, 0, 0, 0.3);
+            }
+        }
+
+        .story-text {
+            max-width: 800px;
+            padding: 25px;
+            margin-top: 5vh;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 2.2vh;
+            opacity: 1;
+        }
+
+        .story-text p {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        #text-2 {
+            text-align: center;
+            font-size: 4vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .story-text p:nth-child(1) {
+            animation-delay: 1s;
+        }
+
+        .story-text p:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        .story-text p:nth-child(3) {
+            animation-delay: 3s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .transmission {
+            width: 50vw;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            opacity: 0;
+            text-align: center;
+            transform: translateY(20px);
+            animation: fadeIn 2s forwards 3s;
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid #ff0000;
+            font-size: 2.5vh;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            background: rgba(50, 50, 50, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            justify-content: center;
+            font-size: 2.2vh;
+        }
+
+        .continue-btn {
+            padding: 15px 30px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards 3s;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        .continue-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(-5px, -5px);
+            }
+
+            50% {
+                transform: translate(5px, 5px);
+            }
+
+            75% {
+                transform: translate(-5px, 5px);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Accessibility Settings Button */
+        #accessibilityBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #accessibilityBtn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Accessibility Panel */
+        .accessibility-panel {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transform: translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .accessibility-panel.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .settings-container {
+            padding: 20px;
+            color: #333;
+        }
+
+        .settings-container h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .setting-group {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .setting-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .setting-description {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .setting-description span {
+            margin-left: 10px;
+        }
+
+        /* Toggle switch styles */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Button styles */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .button-group button {
+            flex: 1 0 30%;
+            margin: 5px;
+            padding: 8px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .button-group button:hover {
+            background-color: #0b7dda;
+        }
+
+        /* High contrast mode */
+        body.high-contrast {
+            --text-color: #fff;
+            --background-color: #000;
+            --button-color: #ffff00;
+            --button-text: #000;
+            --primary-color: #ffff00;
+            --secondary-color: #fff;
+        }
+
+        body.high-contrast .spacecraft {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        body.high-contrast .story-text {
+            background: #000000;
+            border: 2px solid #ffffff;
+        }
+
+        body.high-contrast .continue-btn {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        /* High contrast mode */
+        body.high-contrast {
+            background: #000000 !important;
+            color: #ffff00 !important;
+        }
+
+        body.high-contrast .spacecraft {
+            color: #ffff00 !important;
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.7) !important;
+        }
+
+        body.high-contrast .story-text {
+            background: #000000 !important;
+            border: 2px solid #ffff00 !important;
+            color: #ffff00 !important;
+        }
+
+        body.high-contrast .continue-btn {
+            background: #ffff00 !important;
+            color: #000000 !important;
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.7) !important;
+        }
+
+        body.high-contrast #accessibilityBtn {
+            background-color: #ffff00 !important;
+            color: #000000 !important;
+        }
+
+        body.high-contrast .accessibility-panel {
+            background-color: #000000 !important;
+            border: 2px solid #ffff00 !important;
+        }
+
+        body.high-contrast .settings-container {
+            color: #ffffff !important;
+        }
+
+        body.high-contrast .settings-container h2,
+        body.high-contrast .setting-title,
+        body.high-contrast .setting-description span {
+            color: #ffffff !important;
+        }
+
+        body.high-contrast .button-group button {
+            background-color: #ffff00 !important;
+            color: #000000 !important;
+            border: 1px solid #ffffff !important;
+        }
+
+        body.high-contrast input:checked+.slider {
+            background-color: #ffff00 !important;
+        }
+
+        body.high-contrast .slider:before {
+            background-color: #000000 !important;
+        }
+
+        /* Large text mode */
+        body.large-text {
+            --font-size-base: 20px;
+        }
+
+        body.large-text .story-text {
+            font-size: 3vh;
+        }
+
+        body.large-text #text-2 {
+            font-size: 5vh;
+        }
+
+        body.large-text .continue-btn {
+            font-size: 24px;
+        }
+    </style>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM elements
+            const background = document.querySelector('.background');
+            const accessibilityBtn = document.getElementById('accessibilityBtn');
+            const accessibilityPanel = document.getElementById('accessibilityPanel');
+            const closeSettings = document.getElementById('closeSettings');
+            const highContrastToggle = document.getElementById('highContrastToggle');
+            const largeTextToggle = document.getElementById('largeTextToggle');
+            const muteAudioToggle = document.getElementById('muteAudioToggle');
+            const screenReaderToggle = document.getElementById('screenReaderToggle');
+            const saveSettingsBtn = document.getElementById('saveSettings');
+            const resetSettingsBtn = document.getElementById('resetSettings');
+
+            if (background) {
+                setInterval(function () {
+                    background.style.opacity = (Math.random() * 0.2 + 0.2).toFixed(2);
+                }, 500);
+            }
+
+            if (accessibilityBtn && accessibilityPanel) {
+                accessibilityBtn.addEventListener('click', function () {
+                    accessibilityPanel.classList.toggle('active');
+                });
+            }
+
+            if (closeSettings && accessibilityPanel) {
+                closeSettings.addEventListener('click', function () {
+                    accessibilityPanel.classList.remove('active');
+                });
+            }
+
+            loadSettings();
+
+            // Event listeners for toggles and buttons
+            highContrastToggle.addEventListener('change', toggleHighContrast);
+            largeTextToggle.addEventListener('change', toggleLargeText);
+            screenReaderToggle.addEventListener('change', toggleScreenReader);
+            saveSettingsBtn.addEventListener('click', saveSettings);
+            resetSettingsBtn.addEventListener('click', resetSettings);
+
+            function toggleHighContrast() {
+                document.body.classList.toggle('high-contrast', this.checked);
+            }
+
+            function toggleLargeText() {
+                document.body.classList.toggle('large-text', this.checked);
+            }
+
+            function toggleScreenReader() {
+                if (this.checked) {
+                    enableScreenReaderSupport();
+                } else {
+                    disableScreenReaderSupport();
+                }
+                saveScreenReaderSetting();
+            }
+
+            function loadSettings() {
+                if (localStorage.getItem('highContrast') === 'true') {
+                    highContrastToggle.checked = true;
+                    document.body.classList.add('high-contrast');
+                }
+
+                if (localStorage.getItem('largeText') === 'true') {
+                    largeTextToggle.checked = true;
+                    document.body.classList.add('large-text');
+                }
+
+                if (localStorage.getItem('muteAudio') === 'true') {
+                    muteAudioToggle.checked = true;
+                }
+
+                if (localStorage.getItem('screenReader') === 'true') {
+                    screenReaderToggle.checked = true;
+                    enableScreenReaderSupport();
+                }
+            }
+
+            function saveSettings() {
+                localStorage.setItem('highContrast', highContrastToggle.checked);
+                localStorage.setItem('largeText', largeTextToggle.checked);
+                localStorage.setItem('muteAudio', muteAudioToggle.checked);
+                localStorage.setItem('screenReader', screenReaderToggle.checked);
+                alert('Settings saved!');
+            }
+
+            function resetSettings() {
+                localStorage.removeItem('highContrast');
+                localStorage.removeItem('largeText');
+                localStorage.removeItem('muteAudio');
+                localStorage.removeItem('screenReader');
+
+                highContrastToggle.checked = false;
+                largeTextToggle.checked = false;
+                muteAudioToggle.checked = false;
+                screenReaderToggle.checked = false;
+
+                document.body.classList.remove('high-contrast', 'large-text');
+                disableScreenReaderSupport();
+
+                alert('Settings reset to default');
+            }
+
+            function enableScreenReaderSupport() {
+                document.querySelectorAll('button, a, input, [role="button"]').forEach(el => {
+                    if (!el.getAttribute('aria-label')) {
+                        el.setAttribute('aria-label', el.textContent);
+                    }
+                });
+
+                if (!document.getElementById('skip-link')) {
+                    const skipLink = document.createElement('a');
+                    skipLink.id = 'skip-link';
+                    skipLink.href = '#main-content';
+                    skipLink.className = 'sr-only';
+                    skipLink.textContent = 'Skip to main content';
+                    document.body.insertBefore(skipLink, document.body.firstChild);
+                }
+            }
+
+            function disableScreenReaderSupport() {
+                document.querySelectorAll('[aria-label]').forEach(el => {
+                    el.removeAttribute('aria-label');
+                });
+
+                const skipLink = document.getElementById('skip-link');
+                if (skipLink) {
+                    skipLink.remove();
+                }
+            }
+
+            function saveScreenReaderSetting() {
+                localStorage.setItem('screenReader', screenReaderToggle.checked);
+            }
+        });
+
+    </script>
+
+
+
+
+   </body>
+</html>
+
+
+
