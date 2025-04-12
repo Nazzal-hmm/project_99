@@ -1,102 +1,79 @@
-# Fractured Horzion 
+# Fractured Horizon
 
-## Overview
-This game takes the player on an adventure through a spacecraft in critical condition. The player must navigate through various tasks and challenges to progress through the story.
+A narrative-driven adventure game where players navigate through a damaged spacecraft on the edge of a black hole.
 
-## Game Progression
+## 📖 Overview
 
-1. **Loading Page**
-   - **HTML**: `HTML/loadingPage.html`
-   - **CSS**: `CSS/loadingpage.css`
-   - **JavaScript**: `JavaScript/loadingPage.js`
-   - **Description**: Initializes the escape sequence.
+Fractured Horizon takes players on a tense adventure through a spacecraft in critical condition. Navigate through various puzzles and challenges while making critical decisions that impact the storyline and determine your fate.
 
-2. **Corridor Scene**
-   - **HTML**: `HTML/Corridor1.html`
-   - **CSS**: `CSS/Corridor.css`
-   - **JavaScript**: `JavaScript/task4.js`
-   - **Image**: `images/corrido.jpg`
-   - **Description**: The warning light is flashing, and the ship is shaking uncontrollably. Options to check the window or go to the next room.
+## 🚀 Features
 
-3. **Starting Scene 2**
-   - **HTML**: `HTML/Starting2.html`
-   - **CSS**: `CSS/starting-n.css`
-   - **JavaScript**: `JavaScript/script.js`
+- Immersive narrative experience
+- Multiple endings based on player choices
+- Various puzzles including ciphers, pattern recognition, and technical challenges
+- Memory flashback sequences that reveal the protagonist's story
+- Real-time game timer affecting gameplay outcomes
 
-4. **Daddy Flashback**
-   - **HTML**: `HTML/Daddy flashback.html`
-   - **CSS**: `CSS/Daddy flashback.css`
+## 🎮 How to Play
 
-5. **Caution Scene 2**
-   - **HTML**: `HTML/Caution 2.html`
-   - **CSS**: `CSS/Caution 2.css`
-   - **JavaScript**: `JavaScript/Caution 2.js`
+1. Start the game by opening `HTML/welcomePage.html` in your web browser
+2. Create an account or load a previous save
+3. Follow the on-screen instructions to navigate through the spacecraft
+4. Complete tasks and make decisions to progress through the story
+5. Try to escape the gravitational pull of the black hole before it's too late
 
-6. **Task 2 Introduction**
-   - **HTML**: `HTML/Task2intro.html`
-   - **CSS**: `CSS/intro.css`
-   - **JavaScript**: `JavaScript/intro.js`
+## 🗺️ Game Structure
 
-7. **Task 2 Memory**
-   - **HTML**: `HTML/task2Memory.html`
-   - **CSS**: `CSS/memory2.css`
-   - **JavaScript**: `JavaScript/memory2.js`
+### Main Scenes
 
-8. **Task 4**
-   - **HTML**: `HTML/Task4.html`
-   - **CSS**: `CSS/task4.css`
-   - **Image**: `images/task4image.jpg`
+| Scene | Description |
+|-------|-------------|
+| Welcome & Account | Create a new game or load existing progress |
+| Spacecraft Introduction | Learn about your dire situation |
+| Corridor Scenes | Explore the damaged ship and discover the threat |
+| Task Sequences | Complete various puzzles to repair ship systems |
+| Memory Flashbacks | Uncover the astronaut's backstory |
+| Turbo Sequence | Final challenge to escape the black hole |
+| Multiple Endings | Different conclusions based on your choices and time |
 
-9. **Task 4 Memory**
-   - **HTML**: `HTML/task4Memory.html`
-   - **CSS**: `CSS/memory4.css`
+### File Organization
 
-10. **NZ Task 3**
-    - **HTML**: `HTML/Nztask3.html`
-    - **CSS**: `CSS/Nztask3.css`
-    - **JavaScript**: Inline JS
+```
+├── HTML/           # All HTML files for game scenes
+├── CSS/            # Stylesheets for each scene
+├── JavaScript/     # Game logic and interactive elements
+├── IMAGES/         # Game graphics and backgrounds
+├── PHP/            #Files for hosting on live servers
 
-11. **Memory 3**
-    - **HTML**: `HTML/Memory3.html`
-    - **CSS**: `CSS/Memory3.css`
+```
 
-12. **Caesar Entry**
-    - **HTML**: `HTML/caesarEntry.html`
-    - **CSS**: `CSS/caesarEntry.css`
-    - **JavaScript**: Inline JS
+## 🧩 Puzzles & Challenges
 
-13. **Caesar Task**
-    - **HTML**: `HTML/Caesar.html`
-    - **CSS**: `CSS/Caesar.css`
-    - **JavaScript**: `JavaScript/Caesar.js`
+- **Navigation Tasks**: Calculate the correct roll, pitch, and yaw
+- **Resource Management**: Choose which ship sections to prioritize
+- **Pattern Recognition**: Enter the correct sequence of inputs
+- **Caesar Cipher**: Decrypt an encrypted message
+- **Turbo Sequence**: Multi-stage challenge to escape the black hole
 
-14. **Star Wars Task**
-    - **HTML**: `HTML/Starwars.html`
-    - **CSS**: `CSS/starwars.css`
-    - **JavaScript**: `JavaScript/StarWars.js`
+## 🎭 Endings
 
-15. **If Yes - TStart**
-    - **HTML**: `HTML/If Yes - TStart.html`
-    - **CSS**: `CSS/TStart.css`
+- **Angelic Ending**: Successfully escape by discovering a special secret
+- **Time Over**: Fail to escape before time runs out
+- **AMOGUS Ending**: Get pulled into the black hole
 
-16. **Turbo Task (TT) Series**
-    - **TT1**
-      - **HTML**: `HTML/TT1.html`
-      - **CSS**: `CSS/TT1.css`
-      - **JavaScript**: `JavaScript/TT1.js`
-    - **TT2**
-      - **HTML**: `HTML/TT2.html`
-      - **CSS**: `CSS/TT2.css`
-      - **JavaScript**: `JavaScript/TT2.js`
-    - **TT3**
-      - **HTML**: `HTML/TT3.html`
-      - **CSS**: `CSS/TT3.css`
-      - **JavaScript**: `JavaScript/TT3.js`
+## 📊 Stats & Leaderboard
 
-## How to Play
-1. Start the game by opening `HTML/loadingPage.html` in a web browser.
-2. Follow the on-screen instructions to navigate through the spacecraft and complete tasks.
+Track your performance including:
+- Time taken to complete the game
+- Points accumulated through decisions
+- Compare your stats with other players on the leaderboard
 
-## Additional Notes
-- Ensure all files are in their respective directories for the game to function correctly.
-- The game includes animations and sound effects to enhance the experience.
+## 🔧 Technical Notes
+
+- Ensure all files are in their respective directories
+- The game uses local storage for saving progress
+- Best experienced in a modern web browser with JavaScript enabled
+
+## 📜 License
+
+[MIT](https://choosealicense.com/licenses/mit/)
