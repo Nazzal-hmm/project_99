@@ -74,6 +74,12 @@ Track your performance including:
 - The game uses local storage for saving progress
 - Best experienced in a modern web browser with JavaScript enabled
 
+## 🧠 The Brains Behind the Project
+- [Ahmed Nazzal Kattakath](https://github.com/Nazzal-hmm)
+- [Christy Chovalloor](https://github.com/Chracker24)
+- [Mayukh Banerjee](https://github.com/Mayx23456)
+- [Abdulrahman Desissa](https://github.com/Abdul-des)
+- [Ganesh Kandel](https://github.com/ganesh5176)
 ## 📜 License
 
 [MIT](https://choosealicense.com/licenses/mit/)
