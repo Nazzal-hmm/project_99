@@ -80,6 +80,3 @@ Track your performance including:
 - [Mayukh Banerjee](https://github.com/Mayx23456)
 - [Abdulrahman Desissa](https://github.com/Abdul-des)
 - [Ganesh Kandel](https://github.com/ganesh5176)
-## 📜 License
-
-[MIT](https://choosealicense.com/licenses/mit/)
